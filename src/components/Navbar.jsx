@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../src/images/logo.svg';
-
+import CartWidget from './CartWidget';
 const pages = ['Variedades de uvas', 'Elaboracion del vino', 'Tienda de vinos'];
 
 export default function Navbar() {
@@ -24,13 +24,13 @@ export default function Navbar() {
     setAnchorElNav(null);
   };
   const toIndex = () => {
-    console.log('funciona como boton');
+    console.log('boton que lleva al index');
   };
   return (
     <AppBar style={{ background: '#000000' }} className="navbar" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <button className="buttonIndex">
+          <button className="btnIndex">
             <img src={logo} alt={'logoApp'} style={{ width: 120, height: 120 }} onClick={toIndex} />
           </button>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -69,6 +69,7 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
+          <CartWidget />
         </Toolbar>
       </Container>
     </AppBar>

@@ -8,16 +8,18 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
-.buttonIndex {
+.btnIndex {
   margin: 0;
   padding: 0;
   border: 0;
   height: 120px;
   width: 120px;
   cursor: pointer;
+}
+.btnCart {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
 }
