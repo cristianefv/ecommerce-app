@@ -1,20 +1,20 @@
-import React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import logo from '../../src/images/logo.svg';
-import CartWidget from './CartWidget';
-const pages = ['Variedades de uvas', 'Elaboracion del vino', 'Tienda de vinos'];
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import React from 'react';
+import Logo from '../../../src/assets/images/iconos/logo.svg';
+import CartWidget from '../CartWidget/CartWidget';
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const pages = ['Variedades de uvas', 'Elaboracion del vino', 'Tienda de vinos'];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -30,9 +30,9 @@ export default function Navbar() {
     <AppBar style={{ background: '#000000' }} className="navbar" position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <button className="btnIndex">
-            <img src={logo} alt={'logoApp'} style={{ width: 120, height: 120 }} onClick={toIndex} />
-          </button>
+          <IconButton className="btnIndex" onClick={toIndex}>
+            <img src={Logo} alt={'logoApp'} style={{ width: 120, height: 120 }} />
+          </IconButton>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />

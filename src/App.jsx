@@ -1,21 +1,23 @@
-import '../src/styles/App.css';
-import '../src/styles/Navbar.css';
-import '../src/styles/CartWidget.css';
-import '../src/styles/ItemListContainer.css';
-import '../src/styles/Footer.css';
+import '../src/App.css';
+import '../src/components/CartWidget/CartWidget.css';
+import '../src/components/Footer/Footer.css';
+import '../src/components/ItemCount/ItemCount.css';
+import '../src/components/ItemListContainer/ItemListContainer.css';
+import '../src/components/Navbar/Navbar.css';
 
-import Navbar from './components/Navbar';
-import ItemListContainer from './components/ItemListContainer';
-import Footer from './components/Footer';
+import React from 'react';
+import Footer from './components/Footer/Footer';
+import ItemCount from './components/ItemCount/ItemCount';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Navbar from './components/Navbar/Navbar';
 
-function App() {
+export default function App() {
   return (
     <>
       <Navbar />
+      <ItemCount />
       <ItemListContainer greeting={true} />
       <Footer />
     </>
   );
 }
-
-export default App;

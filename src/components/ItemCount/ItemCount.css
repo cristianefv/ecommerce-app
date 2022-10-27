@@ -1,0 +1,25 @@
+.count {
+  background-color: white;
+  border-style: solid;
+  border-color: black;
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+}
+.btn-less {
+  color: rgb(160, 40, 40);
+  background-color: white;
+  border-style: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn-add {
+  color: rgb(31, 146, 62);
+  background-color: white;
+  border-style: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn-addToCart {
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import iconInstagram from '../../src/iconos/instagram.svg';
+import iconInstagram from '../../../src/iconos/instagram.svg';
 
 const toInstagram = () => {
   window.open('https://www.instagram.com/perfildelvino/');
