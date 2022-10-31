@@ -10,6 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import Logo from '../../../src/assets/images/iconos/logo.svg';
+import '../../../src/components/Navbar/Navbar.css';
 import CartWidget from '../CartWidget/CartWidget';
 
 export default function Navbar() {
@@ -26,6 +27,7 @@ export default function Navbar() {
   const toIndex = () => {
     console.log('boton que lleva al index');
   };
+
   return (
     <AppBar style={{ background: '#000000' }} className="navbar" position="static">
       <Container maxWidth="xl">

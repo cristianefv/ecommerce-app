@@ -2,6 +2,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import React from 'react';
+import '../../../src/components/CartWidget/CartWidget.css';
 
 const seeCart = () => {
   console.log('viendo carrito');

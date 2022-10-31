@@ -1,11 +1,15 @@
 import React from 'react';
+import '../../../src/components/ItemListContainer/ItemListContainer.css';
+import ItemCount from '../ItemCount/ItemCount';
 
-export default function ItemListContainer({ greeting }) {
-  let myDate = new Date();
-  let hours = myDate.getHours();
-  let greet;
-  if (hours < 12) greet = 'mañana';
-  else if (hours >= 12 && hours <= 20) greet = 'tarde';
-  else if (hours >= 20 && hours <= 24) greet = 'noche';
-  return <>{greeting ? <h1 className="saludo">Que tengas una buena {greet}!</h1> : ' '}</>;
+export default function ItemListContainer() {
+  const onAdd = (quantity) => {
+    //! quantity llega hasta aca desde el valor count en ItemCount
+    console.log(`Agregaste ${quantity} unidades`);
+  };
+  return (
+    <>
+      <ItemCount initial={1} stock={10} onAdd={onAdd} />
+    </>
+  );
 }
