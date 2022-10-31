@@ -3,20 +3,31 @@ import '../../../src/components/ItemCount/ItemCount.css';
 
 export default function ItemCount({ initial, stock, onAdd }) {
   const [count, setCount] = useState(parseInt(initial));
-  const [nuevoStock, setNuevoStock] = useState(stock);
+  const [nuevoStock, setNuevoStock] = useState(parseInt(stock));
 
-  const decrease = () => setCount(count - 1);
+  const decrease = () => {
+    setCount(count - 1);
+    setNuevoStock(nuevoStock + 1);
+  };
 
-  const increase = () => setCount(count + 1);
-  //! useEffect es para evitar que se re-renderice esta linea de codigo
+  const increase = () => {
+    setCount(count + 1);
+    setNuevoStock(nuevoStock - 1);
+  };
+
+  const updateStock = () => {
+    // setCount(nuevoStock - count);
+    setNuevoStock(nuevoStock - count);
+    console.log(`el stock ahora es ${parseInt(nuevoStock)}`);
+  };
 
   useEffect(() => {
-    setNuevoStock(stock);
-    console.log(`el stock es: ${stock}`);
-  }, [stock]);
+    setNuevoStock(nuevoStock - count);
+    console.log(`el stock inicial es: ${parseInt(nuevoStock)}`);
+  }, []);
   useEffect(() => {
     setCount(parseInt(initial));
-    console.log(`el valor de inicial es: ${initial}`);
+    console.log(`se puede empezar a elegir ${initial} cantidad`);
   }, [initial]);
   return (
     <>
@@ -30,7 +41,14 @@ export default function ItemCount({ initial, stock, onAdd }) {
             +
           </button>
         </div>
-        <button className="btn-addToCart" disabled={stock <= 0} onClick={() => onAdd(count)}>
+        <button
+          className="btn-addToCart"
+          disabled={nuevoStock <= -1}
+          onClick={() => {
+            onAdd(count);
+            updateStock();
+          }}
+        >
           Agregar al carrito
         </button>
       </div>
