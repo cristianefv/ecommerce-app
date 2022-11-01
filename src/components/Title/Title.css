@@ -1,0 +1,11 @@
+.title {
+  justify-content: center;
+  text-align: center;
+  font-family: 'playfair display';
+  font-style: italic;
+  color: #eeebdd;
+  width: auto;
+  font-size: 70px;
+  background-image: linear-gradient(black, #5f091c);
+  margin: auto;
+}

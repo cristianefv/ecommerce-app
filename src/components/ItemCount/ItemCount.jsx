@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 import '../../../src/components/ItemCount/ItemCount.css';
 
 export default function ItemCount({ initial, stock, onAdd }) {
@@ -16,7 +17,6 @@ export default function ItemCount({ initial, stock, onAdd }) {
   };
 
   const updateStock = () => {
-    // setCount(nuevoStock - count);
     setNuevoStock(nuevoStock - count);
     console.log(`el stock ahora es ${parseInt(nuevoStock)}`);
   };
@@ -34,23 +34,28 @@ export default function ItemCount({ initial, stock, onAdd }) {
       <div className="count-container">
         <div className="count">
           <button className="btn-less" disabled={count <= 1} onClick={decrease}>
-            -
+            <b>-</b>
           </button>
-          <span>{count}</span>
+          <span>
+            <b>{count}</b>
+          </span>
           <button className="btn-add" disabled={count >= stock} onClick={increase}>
-            +
+            <b>+</b>
           </button>
         </div>
-        <button
-          className="btn-addToCart"
-          disabled={nuevoStock <= -1}
+        <Button
+          className="btn-onAdd"
           onClick={() => {
             onAdd(count);
             updateStock();
           }}
+          disabled={nuevoStock <= -1}
+          color="success"
+          variant="contained"
+          size="small"
         >
           Agregar al carrito
-        </button>
+        </Button>
       </div>
     </>
     //! onAdd(count) le manda el dato a quantity en ItemListContainer porque esta declarada ahi

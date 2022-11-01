@@ -1,35 +1,39 @@
 .count-container {
-  background-color: black;
-  width: 250px;
+  width: 171px;
   margin: 20px;
 }
 .count {
   background-color: white;
   border-style: solid;
   border-color: black;
-  width: fit-content;
+  width: auto;
   display: flex;
   justify-content: space-around;
   margin: auto;
+  border-radius: 20px;
 }
 .btn-less {
   color: rgb(160, 40, 40);
   background-color: white;
-  border-style: none;
+  border-style: inset;
   font-size: 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 .btn-add {
   color: rgb(31, 146, 62);
   background-color: white;
-  border-style: none;
+  border-style: inset;
   font-size: 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
-.btn-addToCart {
-  width: 150px;
-  margin: auto;
-  display: flex;
-  justify-content: space-around;
+.btn-onAdd {
+  justify-content: center;
   cursor: pointer;
+  width: auto;
+  margin: auto;
+  padding: 0;
+  display: flex;
+  background-color: white;
 }
