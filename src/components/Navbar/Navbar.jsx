@@ -9,7 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import Logo from '../../../src/assets/images/iconos/logo.svg';
+import Logo from '../../images/iconos/logo.svg';
 import '../../../src/components/Navbar/Navbar.css';
 import CartWidget from '../CartWidget/CartWidget';
 

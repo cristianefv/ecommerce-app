@@ -1,12 +1,16 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import '../../../src/components/Item/Item.css';
+import '../Item/Item.css';
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function Item({ info }) {
+  const onAdd = (quantity) => {
+    //! quantity llega hasta aca desde el valor count en ItemCount
+    console.log(`Agregaste ${quantity} unidades`);
+  };
   return (
     <>
       <Card className="card" sx={{ maxWidth: 250 }}>
@@ -28,7 +32,7 @@ export default function Item({ info }) {
             {`Precio: $${info.precio}`}
           </Typography>
         </CardContent>
-        <CardActions></CardActions>
+        <ItemCount initial={1} stock={10} onAdd={onAdd} />
       </Card>
     </>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from '../Item/Item';
-import '../../../src/components/ItemList/ItemList.css';
+import '../ItemList/ItemList.css';
 
 export default function ItemList({ data = [] }) {
   return (
