@@ -18,8 +18,8 @@ export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = [
     <Link to="/home">
-      <IconButton className="btnIndex">
-        <img src={Logo} alt={'logoApp'} style={{ width: 120, height: 120 }} />
+      <IconButton>
+        <img className="btnIndex" src={Logo} alt={'logoApp'} style={{ width: 120, height: 120 }} />
       </IconButton>
     </Link>,
     <Link to="/estilo/tintos" style={{ color: 'white', textDecoration: 'none', height: 60 }}>

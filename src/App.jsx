@@ -16,7 +16,6 @@ export default function App() {
         {/* //! COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS */}
         <Navbar />
         <Title />
-
         {/* //!ACA ABAJO DELCARO RUTAS PUNTUALES */}
         <Routes>
           <Route path="/home" element={<ItemListContainer />} />

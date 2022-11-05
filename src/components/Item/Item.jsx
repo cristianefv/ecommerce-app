@@ -31,7 +31,7 @@ export default function Item({ item }) {
           </Typography>
         </CardContent>
         <Button style={{ backgroundColor: 'black' }}>
-          <Link style={{ color: 'white' }} to={`/item/${item.id}`}>
+          <Link style={{ color: 'white' }} to={`/vino-seleccionado/${item.id}`}>
             VER DETALLE
           </Link>
         </Button>

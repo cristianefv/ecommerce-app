@@ -29,7 +29,7 @@ export const winery = [
     imagen: BenMarcoCf,
   },
   {
-    id: 2,
+    id: 'achaval-merlot',
     nombre: 'Achaval Ferrer',
     bodega: 'Achaval Ferrer',
     estilo: 'tintos',
@@ -38,9 +38,9 @@ export const winery = [
     precio: 2850,
     imagen: AchavalFerrerMerlot,
   },
-  { id: 3, nombre: 'Ver Sacrum', bodega: 'Ver Sacrum', estilo: 'tintos', cepa: 'Garnacha', aniada: 2020, precio: 3000, imagen: VerSacrum },
+  { id: 'versacrum-garnacha', nombre: 'Ver Sacrum', bodega: 'Ver Sacrum', estilo: 'tintos', cepa: 'Garnacha', aniada: 2020, precio: 3000, imagen: VerSacrum },
   {
-    id: 4,
+    id: 'tinto-de-la-casa-malbec',
     nombre: 'Tinto de la Casa',
     bodega: 'Riccitelli Wines',
     estilo: 'tintos',
@@ -49,14 +49,14 @@ export const winery = [
     precio: 5200,
     imagen: TintoCasa,
   },
-  { id: 5, nombre: 'Piel Negra', bodega: 'Bressia', estilo: 'tintos', cepa: 'Pinot Noir', aniada: 2018, precio: 7500, imagen: PielNegra },
-  { id: 6, nombre: 'Altimus', bodega: 'El Esteco', estilo: 'tintos', cepa: 'Blend', aniada: 2017, precio: 9950, imagen: Altimus },
-  { id: 7, nombre: 'Puramun', bodega: 'Pepe Galante', estilo: 'blancos', cepa: 'Chardonnay', aniada: 2019, precio: 1446, imagen: Puramun },
-  { id: 8, nombre: 'Colome', bodega: 'Colome Wines', estilo: 'blancos', cepa: 'Torrontes', aniada: 2020, precio: 1750, imagen: Colome },
-  { id: 9, nombre: 'Mendel', bodega: 'Bodega Mendel', estilo: 'blancos', cepa: 'Semillon', aniada: 2020, precio: 2299, imagen: Mendel },
-  { id: 10, nombre: 'Zaha', bodega: 'Teho Wines', estilo: 'blancos', cepa: 'Marsanne', aniada: 2019, precio: 2875, imagen: Zaha },
+  { id: 'piel-negra-pinot-noir', nombre: 'Piel Negra', bodega: 'Bressia', estilo: 'tintos', cepa: 'Pinot Noir', aniada: 2018, precio: 7500, imagen: PielNegra },
+  { id: 'altimus-blend', nombre: 'Altimus', bodega: 'El Esteco', estilo: 'tintos', cepa: 'Blend', aniada: 2017, precio: 9950, imagen: Altimus },
+  { id: 'puramun-chardonnay', nombre: 'Puramun', bodega: 'Pepe Galante', estilo: 'blancos', cepa: 'Chardonnay', aniada: 2019, precio: 1446, imagen: Puramun },
+  { id: 'colome-torrontes', nombre: 'Colome', bodega: 'Colome Wines', estilo: 'blancos', cepa: 'Torrontes', aniada: 2020, precio: 1750, imagen: Colome },
+  { id: 'mendel-semillon', nombre: 'Mendel', bodega: 'Bodega Mendel', estilo: 'blancos', cepa: 'Semillon', aniada: 2020, precio: 2299, imagen: Mendel },
+  { id: 'zaha-marsanne', nombre: 'Zaha', bodega: 'Teho Wines', estilo: 'blancos', cepa: 'Marsanne', aniada: 2019, precio: 2875, imagen: Zaha },
   {
-    id: 11,
+    id: 'linda-flor-chardonnay',
     nombre: 'Linda Flor',
     bodega: 'Monteviejo',
     estilo: 'blancos',
@@ -66,7 +66,7 @@ export const winery = [
     imagen: LindaFlor,
   },
   {
-    id: 12,
+    id: 'jijiji-chenin-blanc',
     nombre: 'Ji Ji Ji',
     bodega: 'Gen del Alma',
     estilo: 'blancos',
@@ -76,7 +76,7 @@ export const winery = [
     imagen: Jijiji,
   },
   {
-    id: 13,
+    id: 'susana-balbo-signature-rosado',
     nombre: 'Signature',
     bodega: 'Susana Balbo',
     estilo: 'rosados',
@@ -85,12 +85,12 @@ export const winery = [
     precio: 5200,
     imagen: Signature,
   },
-  { id: 14, nombre: 'Flora', bodega: 'Teho Wines', estilo: 'rosados', cepa: 'Pinot Noir', aniada: 2019, precio: 3300, imagen: Flora },
-  { id: 15, nombre: 'Padma', bodega: 'Corazon del Sol', estilo: 'rosados', cepa: 'Garnacha', aniada: 2021, precio: 6000, imagen: Padma },
-  { id: 16, nombre: 'Rosé', bodega: 'Las Perdices', estilo: 'rosados', cepa: 'Malbec', aniada: 2021, precio: 2700, imagen: PerdicesRose },
-  { id: 17, nombre: 'Nacha', bodega: 'Chacra', estilo: 'rosados', cepa: 'Pinot Noir', aniada: 2021, precio: 6490, imagen: Nacha },
+  { id: 'flora-pinot-noir', nombre: 'Flora', bodega: 'Teho Wines', estilo: 'rosados', cepa: 'Pinot Noir', aniada: 2019, precio: 3300, imagen: Flora },
+  { id: 'corazon-del-sol-garnacha', nombre: 'Padma', bodega: 'Corazon del Sol', estilo: 'rosados', cepa: 'Garnacha', aniada: 2021, precio: 6000, imagen: Padma },
+  { id: 'las-perdices-rose', nombre: 'Rosé', bodega: 'Las Perdices', estilo: 'rosados', cepa: 'Malbec', aniada: 2021, precio: 2700, imagen: PerdicesRose },
+  { id: 'nacha-pinot-noir', nombre: 'Nacha', bodega: 'Chacra', estilo: 'rosados', cepa: 'Pinot Noir', aniada: 2021, precio: 6490, imagen: Nacha },
   {
-    id: 18,
+    id: 'casa-petrini-rose',
     nombre: 'Casa Petrini Rosé',
     bodega: 'Casa Petrini',
     estilo: 'rosados',
@@ -108,11 +108,3 @@ export const getProducts = () => {
     }, 2000);
   });
 };
-
-// export const getItem = (id) => {
-//   return new Promise((res, rej) => {
-//     setTimeout(() => {
-//       res(winery.find((item) => item.id === id));
-//     }, 2000);
-//   });
-// };
