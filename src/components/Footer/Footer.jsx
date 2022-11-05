@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../src/components/Footer/Footer.css';
+import '../Footer/Footer.css';
 import iconInstagram from '../../images/iconos/instagram.svg';
 
 const toInstagram = () => {

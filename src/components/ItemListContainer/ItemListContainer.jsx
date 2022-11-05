@@ -1,23 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import LinearProgress from '@mui/material/LinearProgress';
+import Stack from '@mui/material/Stack';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getProducts } from '../../data/productos.js';
+import ItemList from '../ItemList/ItemList';
 import '../ItemListContainer/ItemListContainer.css';
 
-import ItemList from '../ItemList/ItemList';
-
-import { getProducts } from '../../data/productos.js';
-
 export default function ItemListContainer() {
-  const [data, setData] = useState([]);
+  const { idcategory } = useParams();
+
+  const [vinoteca, setVinoteca] = useState([]);
 
   useEffect(() => {
-    const getData = new Promise((res, rej) => {
-      res(getProducts());
+    const getWinery = new Promise((res, rej) => {
+      res(getProducts()); //!Trae el array de productos a los 2 segundos
     });
-    getData.then((res) => setData(res));
-  }, []);
+    getWinery.then((res) => {
+      if (idcategory) {
+        setVinoteca(res.filter((item) => item.estilo === idcategory));
+      } else {
+        setVinoteca(res);
+      }
+    });
+  }, [idcategory]);
 
   return (
     <>
-      <ItemList data={data} />
+      {!vinoteca.length && (
+        <Stack sx={{ width: '100%', color: 'red' }} spacing={2}>
+          <LinearProgress color="inherit" />
+        </Stack>
+      )}
+      <ItemList vinoteca={vinoteca} />
     </>
   );
 }
