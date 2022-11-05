@@ -58,6 +58,6 @@ export default function ItemCount({ initial, stock, onAdd }) {
         </Button>
       </div>
     </>
-    //! onAdd(count) le manda el dato a quantity en ItemListContainer porque esta declarada ahi
+    //! onAdd(count) le manda el dato a quantity en ItemDetail porque esta declarada ahi
   );
 }

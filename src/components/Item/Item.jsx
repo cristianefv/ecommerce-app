@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Item/Item.css';
-// import { getItem } from '../../data/productos';
 
 export default function Item({ item }) {
   return (

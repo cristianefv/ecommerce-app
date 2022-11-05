@@ -6,8 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import React from 'react';
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function ItemDetail({ vinoSeleccionado }) {
+  const onAdd = (quantity) => {
+    //! quantity llega hasta aca desde el valor count en ItemCount
+    console.log(`Agregaste ${quantity} unidades`);
+  };
   return (
     <div>
       {vinoSeleccionado.id ? (
@@ -25,6 +30,7 @@ export default function ItemDetail({ vinoSeleccionado }) {
               <Typography variant="h6" color="text.primary">
                 {`Precio: ${vinoSeleccionado.precio}`}
               </Typography>
+              <ItemCount initial={1} stock={10} onAdd={onAdd} />
             </CardContent>
           </Card>
           ;
