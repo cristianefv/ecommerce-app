@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function ItemDetail() {
-  return <div>ItemDetail</div>;
+export default function ItemDetail({ vinoSeleccionado }) {
+  return <div>{vinoSeleccionado.id ? <>{vinoSeleccionado.nombre}</> : <>Loading...</>}</div>;
 }

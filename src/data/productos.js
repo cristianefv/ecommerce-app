@@ -112,7 +112,7 @@ export const getProducts = () => {
 // export const getItem = (id) => {
 //   return new Promise((res, rej) => {
 //     setTimeout(() => {
-//       res(winery.filter((item) => item.id === id));
+//       res(winery.find((item) => item.id === id));
 //     }, 2000);
 //   });
 // };
