@@ -18,7 +18,7 @@ export default function App() {
         <Title />
         {/* //!ACA ABAJO DELCARO RUTAS PUNTUALES */}
         <Routes>
-          <Route path="/home" element={<ItemListContainer />} />
+          <Route path="/" element={<ItemListContainer />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/estilo/:idcategory" element={<ItemListContainer />} />

@@ -28,7 +28,7 @@ export default function ItemDetail({ vinoSeleccionado }) {
                 {`Cepa utilizada: ${vinoSeleccionado.cepa}`}
               </Typography>
               <Typography variant="h6" color="text.primary">
-                {`Precio: ${vinoSeleccionado.precio}`}
+                {`Precio: $${vinoSeleccionado.precio}`}
               </Typography>
               <ItemCount initial={1} stock={10} onAdd={onAdd} />
             </CardContent>

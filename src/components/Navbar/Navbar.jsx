@@ -17,28 +17,56 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = [
-    <Link to="/home">
-      <IconButton>
-        <img className="btnIndex" src={Logo} alt={'logoApp'} style={{ width: 120, height: 120 }} />
-      </IconButton>
-    </Link>,
-    <Link to="/estilo/tintos" style={{ color: 'white', textDecoration: 'none', height: 60 }}>
-      vinos tintos
-    </Link>,
-    <Link to="/estilo/blancos" style={{ color: 'white', textDecoration: 'none' }}>
-      vinos blancos
-    </Link>,
-    <Link to="/estilo/rosados" style={{ color: 'white', textDecoration: 'none' }}>
-      vinos rosados
-    </Link>,
+    {
+      id: 1,
+      html: (
+        <Link to="/">
+          <img className="btnIndex" src={Logo} alt={'logoApp'} style={{ width: 120, height: 120 }} />
+        </Link>
+      ),
+    },
+    {
+      id: 2,
+      html: (
+        <Link to="/estilo/tintos" style={{ color: 'white', textDecoration: 'none', height: 60 }}>
+          vinos tintos
+        </Link>
+      ),
+    },
+    {
+      id: 3,
+      html: (
+        <Link to="/estilo/blancos" style={{ color: 'white', textDecoration: 'none' }}>
+          vinos blancos
+        </Link>
+      ),
+    },
+    {
+      id: 4,
+      html: (
+        <Link to="/estilo/rosados" style={{ color: 'white', textDecoration: 'none' }}>
+          vinos rosados
+        </Link>
+      ),
+    },
 
-    <Link to="/checkout" style={{ color: 'white', textDecoration: 'none' }}>
-      checkout
-    </Link>,
+    {
+      id: 5,
+      html: (
+        <Link to="/checkout" style={{ color: 'white', textDecoration: 'none' }}>
+          checkout
+        </Link>
+      ),
+    },
 
-    <Link to="/contacto" style={{ color: 'white', textDecoration: 'none' }}>
-      contacto
-    </Link>,
+    {
+      id: 6,
+      html: (
+        <Link to="/contacto" style={{ color: 'white', textDecoration: 'none' }}>
+          contacto
+        </Link>
+      ),
+    },
   ];
 
   const handleOpenNavMenu = (event) => {
@@ -76,16 +104,16 @@ export default function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.html}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
+              <Button key={page.id} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+                {page.html}
               </Button>
             ))}
           </Box>
