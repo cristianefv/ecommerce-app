@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Checkout from './components/Checkout/Checkout';
 import Contacto from './components/Contacto/Contacto';
 import Title from './components/Title/Title';
+import Cart from './components/Cart/Cart';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/estilo/:idcategory" element={<ItemListContainer />} />
           <Route path="/vino-seleccionado/:iditem" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         {/* //! COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS ABAJO DE TODO */}
         <Footer />

@@ -36,3 +36,10 @@
   display: flex;
   background-color: white;
 }
+.btn-cart-container {
+  width: 200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}

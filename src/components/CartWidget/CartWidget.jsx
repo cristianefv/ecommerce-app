@@ -1,21 +1,21 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
-import IconButton from '@mui/material/IconButton';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../CartWidget/CartWidget.css';
 
-const seeCart = () => {
-  console.log('viendo carrito');
-};
-
+//! PASAR POR PROP LA CANTIDAD DE ITEMS EN CART PARA AGREGARLA A "badgeContent"
 export default function CartWidget() {
+  const seeCart = () => {
+    console.log('viendo carrito');
+  };
   return (
     <>
-      <IconButton size="large" aria-label="show 0 new items" color="inherit">
+      <Link to="/cart" size="large" aria-label="show 0 new items" color="white">
         <Badge badgeContent={0} color="error">
           <ShoppingCartIcon onClick={seeCart} />
         </Badge>
-      </IconButton>
+      </Link>
     </>
   );
 }

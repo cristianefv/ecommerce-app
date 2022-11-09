@@ -30,7 +30,7 @@ export default function ItemDetail({ vinoSeleccionado }) {
               <Typography variant="h6" color="text.primary">
                 {`Precio: $${vinoSeleccionado.precio}`}
               </Typography>
-              <ItemCount initial={1} stock={10} onAdd={onAdd} />
+              <ItemCount initial={1} stock={vinoSeleccionado.stock} onAdd={onAdd} />
             </CardContent>
           </Card>
           ;
