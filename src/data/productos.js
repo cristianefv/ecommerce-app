@@ -50,7 +50,7 @@ export const winery = [
     aniada: 2020,
     precio: 5200,
     imagen: TintoCasa,
-    stock: 12,
+    stock: 15,
   },
   { id: 'piel-negra-pinot-noir', nombre: 'Piel Negra', bodega: 'Bressia', estilo: 'tintos', cepa: 'Pinot Noir', aniada: 2018, precio: 7500, imagen: PielNegra, stock: 10 },
   { id: 'altimus-blend', nombre: 'Altimus', bodega: 'El Esteco', estilo: 'tintos', cepa: 'Blend', aniada: 2017, precio: 9950, imagen: Altimus, stock: 15 },

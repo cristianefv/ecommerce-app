@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import '../../../src/components/ItemCount/ItemCount.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
-export default function ItemCount({ initial, stock, onAdd }) {
+export default function ItemCount({ initial, stock, onAdd, renderizarStock }) {
   const [count, setCount] = useState(parseInt(initial));
   const [nuevoStock, setNuevoStock] = useState(parseInt(stock));
+  const [seAgrego, setSeAgrego] = useState(false);
 
   const decrease = () => {
     setCount(count - 1);
@@ -15,11 +17,6 @@ export default function ItemCount({ initial, stock, onAdd }) {
   const increase = () => {
     setCount(count + 1);
     setNuevoStock(nuevoStock - 1);
-  };
-
-  const updateStock = () => {
-    setNuevoStock(nuevoStock - count);
-    console.log(`el stock ahora es ${parseInt(nuevoStock)}`);
   };
 
   useEffect(() => {
@@ -45,11 +42,31 @@ export default function ItemCount({ initial, stock, onAdd }) {
         </button>
       </div>
       <div className="btn-cart-container">
-        <Button
+        {seAgrego ? (
+          <Link to={'/cart'}>IR AL CARRITO</Link>
+        ) : (
+          <Button
+            className="btn-onAdd"
+            onClick={() => {
+              onAdd(count);
+              renderizarStock(nuevoStock);
+              setSeAgrego(true);
+            }}
+            disabled={nuevoStock < 0}
+            color="success"
+            variant="contained"
+            size="small"
+          >
+            Agregar al carrito
+          </Button>
+        )}
+
+        {/* <Button
           className="btn-onAdd"
           onClick={() => {
             onAdd(count);
-            updateStock();
+
+            prueba(nuevoStock);
           }}
           disabled={nuevoStock < 0}
           color="success"
@@ -57,7 +74,8 @@ export default function ItemCount({ initial, stock, onAdd }) {
           size="small"
         >
           Agregar al carrito
-        </Button>
+        </Button> */}
+
         <CartWidget />
       </div>
     </div>

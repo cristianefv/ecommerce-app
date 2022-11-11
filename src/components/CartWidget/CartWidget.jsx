@@ -9,10 +9,11 @@ export default function CartWidget() {
   const seeCart = () => {
     console.log('viendo carrito');
   };
+
   return (
     <>
       <Link to="/cart" size="large" aria-label="show 0 new items" color="white">
-        <Badge badgeContent={0} color="error">
+        <Badge badgeContent={2} color="error">
           <ShoppingCartIcon onClick={seeCart} />
         </Badge>
       </Link>
