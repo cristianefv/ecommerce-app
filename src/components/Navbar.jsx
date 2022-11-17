@@ -9,9 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import Logo from '../../images/iconos/logo.svg';
-import '../Navbar/Navbar.css';
-import CartWidget from '../CartWidget/CartWidget';
+import Logo from '../images/iconos/logo.svg';
+import '../styles/Navbar.css';
+import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {

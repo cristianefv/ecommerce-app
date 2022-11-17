@@ -3,14 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
-import '../Item/Item.css';
+import '../styles/Item.css';
 
 export default function Item({ item }) {
-  const nombre = useContext(CartContext);
-  console.log(`Item: ${nombre}`);
   return (
     <div key={item.id}>
       <Card className="card" sx={{ maxWidth: 250 }}>

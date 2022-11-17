@@ -1,24 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Button from '@mui/material/Button';
-import '../../../src/components/ItemCount/ItemCount.css';
-import CartWidget from '../CartWidget/CartWidget';
+import '../styles/ItemCount.css';
+import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { cartContext } from '../context/CartContextComponent';
 
-export default function ItemCount({ initial, stock, onAdd, renderizarStock }) {
+export default function ItemCount({ initial, renderizarStock, item }) {
   const [count, setCount] = useState(parseInt(initial));
-  const [nuevoStock, setNuevoStock] = useState(parseInt(stock));
+  const { cart, addToCart } = useContext(cartContext);
+  const [nuevoStock, setNuevoStock] = useState(parseInt(item.stock));
   const [seAgrego, setSeAgrego] = useState(false);
 
+  const onAdd = (quantity) => {
+    // //! quantity llega hasta aca desde el valor count en ItemCount
+    // console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
+    addToCart(item, count);
+  };
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
   const decrease = () => {
     setCount(count - 1);
-    setNuevoStock(nuevoStock + 1);
   };
 
   const increase = () => {
     setCount(count + 1);
     setNuevoStock(nuevoStock - 1);
   };
-
   useEffect(() => {
     setNuevoStock(nuevoStock - count);
     console.log(`el stock inicial es: ${parseInt(nuevoStock)}`);
@@ -37,7 +46,7 @@ export default function ItemCount({ initial, stock, onAdd, renderizarStock }) {
         <span>
           <b>{count}</b>
         </span>
-        <button className="btn-add" disabled={count >= stock} onClick={increase}>
+        <button className="btn-add" disabled={count >= item.stock} onClick={increase}>
           <b>+</b>
         </button>
       </div>
@@ -50,7 +59,7 @@ export default function ItemCount({ initial, stock, onAdd, renderizarStock }) {
             onClick={() => {
               onAdd(count);
               renderizarStock(nuevoStock);
-              setSeAgrego(true);
+              // setSeAgrego(true);
             }}
             disabled={nuevoStock < 0}
             color="success"
@@ -60,21 +69,6 @@ export default function ItemCount({ initial, stock, onAdd, renderizarStock }) {
             Agregar al carrito
           </Button>
         )}
-
-        {/* <Button
-          className="btn-onAdd"
-          onClick={() => {
-            onAdd(count);
-
-            prueba(nuevoStock);
-          }}
-          disabled={nuevoStock < 0}
-          color="success"
-          variant="contained"
-          size="small"
-        >
-          Agregar al carrito
-        </Button> */}
 
         <CartWidget />
       </div>

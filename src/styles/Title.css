@@ -6,6 +6,6 @@
   color: #eeebdd;
   width: auto;
   font-size: 70px;
-  background-image: linear-gradient(black, #5f091c);
+  background-image: linear-gradient(#5f091c, black);
   margin: auto;
 }

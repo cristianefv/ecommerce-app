@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../data/productos';
-import ItemDetail from '../ItemDetail/ItemDetail';
+import { getProducts } from '../data/productos';
+import ItemDetail from './ItemDetail';
 
 export default function ItemDetailContainer() {
   const { iditem } = useParams();
@@ -18,7 +18,7 @@ export default function ItemDetailContainer() {
 
   return (
     <>
-      <ItemDetail vinoSeleccionado={vinoSeleccionado} />
+      <ItemDetail item={vinoSeleccionado} />
     </>
   );
 }

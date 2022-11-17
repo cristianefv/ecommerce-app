@@ -2,9 +2,9 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../data/productos.js';
-import ItemList from '../ItemList/ItemList';
-import '../ItemListContainer/ItemListContainer.css';
+import { getProducts } from '../data/productos.js';
+import ItemList from './ItemList';
+import '../styles/ItemListContainer.css';
 
 export default function ItemListContainer() {
   const { idcategory } = useParams();
@@ -13,7 +13,7 @@ export default function ItemListContainer() {
 
   useEffect(() => {
     const getWinery = new Promise((res, rej) => {
-      res(getProducts()); //!Trae el array de productos a los 2 segundos
+      res(getProducts());
     });
     getWinery.then((res) => {
       if (idcategory) {

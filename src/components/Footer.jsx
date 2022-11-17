@@ -1,6 +1,6 @@
 import React from 'react';
-import '../Footer/Footer.css';
-import iconInstagram from '../../images/iconos/instagram.svg';
+import '../styles/Footer.css';
+import iconInstagram from '../images/iconos/instagram.svg';
 
 const toInstagram = () => {
   window.open('https://www.instagram.com/perfildelvino/');

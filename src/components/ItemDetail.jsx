@@ -6,44 +6,44 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import React, { useState, useEffect } from 'react';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemCount from './ItemCount';
 
-export default function ItemDetail({ vinoSeleccionado }) {
-  const onAdd = (quantity) => {
-    //! quantity llega hasta aca desde el valor count en ItemCount
-    console.log(`Agregaste ${quantity} unidades`);
-  };
+export default function ItemDetail({ item }) {
+  // const onAdd = (quantity) => {
+  //   //! quantity llega hasta aca desde el valor count en ItemCount
+  //   console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
+  // };
 
-  const [renderStock, setRenderStock] = useState(vinoSeleccionado.stock);
+  const [renderStock, setRenderStock] = useState(item.stock);
 
   useEffect(() => {
-    setRenderStock(vinoSeleccionado.stock);
-  }, [vinoSeleccionado]);
+    setRenderStock(item.stock);
+  }, [item]);
 
-  const renderizarStock = (stockActualizado) => {
-    setRenderStock(stockActualizado);
+  const renderizarStock = (updateStock) => {
+    setRenderStock(updateStock);
   };
 
   return (
     <div>
-      {vinoSeleccionado.id ? (
+      {item.id ? (
         <>
           <Card sx={{ maxWidth: 345 }}>
-            <CardHeader title={vinoSeleccionado.nombre} subheader={`Categoria del vino: ${vinoSeleccionado.estilo}`} />
-            <CardMedia component="img" height="450" image={vinoSeleccionado.imagen} alt="vino elegido" />
+            <CardHeader title={item.nombre} subheader={`Categoria del vino: ${item.estilo}`} />
+            <CardMedia component="img" height="450" image={item.imagen} alt="vino elegido" />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
-                {`Bodega: ${vinoSeleccionado.bodega}`}
+                {`Bodega: ${item.bodega}`}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {`Cepa utilizada: ${vinoSeleccionado.cepa}`}
+                {`Cepa utilizada: ${item.cepa}`}
               </Typography>
               <Typography variant="h6" color="text.primary">
-                {`Precio: $${vinoSeleccionado.precio}`}
+                {`Precio: $${item.precio}`}
               </Typography>
               <Typography>{`Stock actual: ${renderStock} unidades `}</Typography>
 
-              <ItemCount renderizarStock={renderizarStock} initial={1} stock={vinoSeleccionado.stock} onAdd={onAdd} />
+              <ItemCount renderizarStock={renderizarStock} initial={1} item={item} />
             </CardContent>
           </Card>
           ;
