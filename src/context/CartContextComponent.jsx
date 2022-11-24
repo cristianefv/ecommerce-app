@@ -5,7 +5,6 @@ export const cartContext = createContext();
 
 export default function CartContextComponent({ children }) {
   const [cart, setCart] = useState([]);
-
   const addToCart = (item, count) => {
     const cartAux = [...cart];
 
@@ -13,6 +12,7 @@ export default function CartContextComponent({ children }) {
     for (let i = 0; i < cartAux.length; i++) {
       if (cartAux[i].id === item.id) {
         cartAux[i].count += count;
+        cartAux[i].stock -= count;
         itemAgregado = true;
       }
     }
@@ -22,7 +22,8 @@ export default function CartContextComponent({ children }) {
     }
 
     setCart(cartAux);
+    console.log(cartAux);
   };
 
-  return <cartContext.Provider value={{ cart, addToCart }}>{children}</cartContext.Provider>;
+  return <cartContext.Provider value={{ cart, addToCart, x: 10 }}>{children}</cartContext.Provider>;
 }

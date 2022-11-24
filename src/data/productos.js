@@ -56,7 +56,7 @@ export const winery = [
   { id: 'altimus-blend', nombre: 'Altimus', bodega: 'El Esteco', estilo: 'tintos', cepa: 'Blend', aniada: 2017, precio: 9950, imagen: Altimus, stock: 15 },
   { id: 'puramun-chardonnay', nombre: 'Puramun', bodega: 'Pepe Galante', estilo: 'blancos', cepa: 'Chardonnay', aniada: 2019, precio: 1446, imagen: Puramun, stock: 17 },
   { id: 'colome-torrontes', nombre: 'Colome', bodega: 'Colome Wines', estilo: 'blancos', cepa: 'Torrontes', aniada: 2020, precio: 1750, imagen: Colome, stock: 9 },
-  { id: 'mendel-semillon', nombre: 'Mendel', bodega: 'Bodega Mendel', estilo: 'blancos', cepa: 'Semillon', aniada: 2020, precio: 2299, imagen: Mendel, stock: 6 },
+  { id: 'mendel-semillon', nombre: 'Mendel', bodega: 'Mendel', estilo: 'blancos', cepa: 'Semillon', aniada: 2020, precio: 2299, imagen: Mendel, stock: 10 },
   { id: 'zaha-marsanne', nombre: 'Zaha', bodega: 'Teho Wines', estilo: 'blancos', cepa: 'Marsanne', aniada: 2019, precio: 2875, imagen: Zaha, stock: 12 },
   {
     id: 'linda-flor-chardonnay',

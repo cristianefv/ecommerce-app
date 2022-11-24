@@ -5,14 +5,15 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ItemCount from './ItemCount';
+import { cartContext } from '../context/CartContextComponent';
 
 export default function ItemDetail({ item }) {
-  // const onAdd = (quantity) => {
-  //   //! quantity llega hasta aca desde el valor count en ItemCount
-  //   console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
-  // };
+  const onAdd = (quantity) => {
+    //! quantity llega hasta aca desde el valor count en ItemCount
+    alert(`Agregaste ${quantity} unidades de ${item.nombre}`);
+  };
 
   const [renderStock, setRenderStock] = useState(item.stock);
 
@@ -43,7 +44,7 @@ export default function ItemDetail({ item }) {
               </Typography>
               <Typography>{`Stock actual: ${renderStock} unidades `}</Typography>
 
-              <ItemCount renderizarStock={renderizarStock} initial={1} item={item} />
+              <ItemCount renderizarStock={renderizarStock} initial={1} item={item} onAdd={onAdd} />
             </CardContent>
           </Card>
           ;

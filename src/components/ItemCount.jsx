@@ -5,48 +5,66 @@ import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../context/CartContextComponent';
 
-export default function ItemCount({ initial, renderizarStock, item }) {
-  const [count, setCount] = useState(parseInt(initial));
+export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
+  const [count, setCount] = useState(initial);
   const { cart, addToCart } = useContext(cartContext);
-  const [nuevoStock, setNuevoStock] = useState(parseInt(item.stock));
+  const [nuevoStock, setNuevoStock] = useState(item.stock);
   const [seAgrego, setSeAgrego] = useState(false);
 
-  const onAdd = (quantity) => {
-    // //! quantity llega hasta aca desde el valor count en ItemCount
-    // console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
-    addToCart(item, count);
-  };
+  // const onAdd = (quantity) => {
+  //   // //! quantity llega hasta aca desde el valor count en ItemCount
+  //   // console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
+  //   addToCart(item, count);
+  //   console.log(`elegiste ${quantity} unidad/es`);
+  // };
+
+  // useEffect(() => {
+  //   setCount(initial);
+  //   console.log(`se puede empezar a elegir ${initial} cantidad`);
+  // }, [initial]);
 
   useEffect(() => {
     console.log(cart);
   }, [cart]);
+
+  // useEffect(() => {
+  //   console.log('count esta en: ', count);
+  // }, [count]);
+
+  useEffect(() => {
+    console.log('el stock es: ', nuevoStock);
+  }, [nuevoStock]);
+
   const decrease = () => {
-    setCount(count - 1);
+    if (count) {
+      setCount(count - 1);
+      // console.log(`resto 1`);
+    }
   };
 
   const increase = () => {
-    setCount(count + 1);
-    setNuevoStock(nuevoStock - 1);
+    if (count) {
+      setCount(count + 1);
+      // console.log(`sumo 1 a count`);
+    }
   };
-  useEffect(() => {
-    setNuevoStock(nuevoStock - count);
-    console.log(`el stock inicial es: ${parseInt(nuevoStock)}`);
-  }, []);
-
-  useEffect(() => {
-    setCount(parseInt(initial));
-    console.log(`se puede empezar a elegir ${initial} cantidad`);
-  }, [initial]);
+  // useEffect(() => {
+  //   // setNuevoStock(nuevoStock - count);
+  //   console.log(`el stock inicial es: ${nuevoStock}`);
+  // }, []);
+  if (item.stock <= 0) {
+    <>`LO SIENTO`</>;
+  }
   return (
     <div className="count-container">
       <div className="count">
-        <button className="btn-less" disabled={count <= 1} onClick={decrease}>
+        <button className="btn-less" onClick={decrease} disabled={count <= 1}>
           <b>-</b>
         </button>
         <span>
           <b>{count}</b>
         </span>
-        <button className="btn-add" disabled={count >= item.stock} onClick={increase}>
+        <button className="btn-add" onClick={increase} disabled={count >= item.stock}>
           <b>+</b>
         </button>
       </div>
@@ -61,7 +79,7 @@ export default function ItemCount({ initial, renderizarStock, item }) {
               renderizarStock(nuevoStock);
               // setSeAgrego(true);
             }}
-            disabled={nuevoStock < 0}
+            disabled={nuevoStock < 1}
             color="success"
             variant="contained"
             size="small"
