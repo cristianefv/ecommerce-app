@@ -13,7 +13,7 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
 
   const [cant, setCant] = React.useState(0);
   React.useEffect(() => {
-    setCant(cart.length);
+    setCant(cart.reduce((acc, item) => acc + item.quantity, 0));
   }, [cart]);
 
   // const onAdd = (quantity) => {

@@ -19,7 +19,7 @@ export default function Navbar() {
   const { cart } = React.useContext(cartContext);
   const [cant, setCant] = React.useState(0);
   React.useEffect(() => {
-    setCant(cart.length);
+    setCant(cart.reduce((acc, item) => acc + item.quantity, 0));
   }, [cart]);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
