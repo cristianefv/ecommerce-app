@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../data/productos';
 import ItemDetail from './ItemDetail';
 
 export default function ItemDetailContainer() {
@@ -8,11 +8,12 @@ export default function ItemDetailContainer() {
   const [vinoSeleccionado, setVinoSeleccionado] = useState({});
 
   useEffect(() => {
-    const getWine = new Promise((res, rej) => {
-      res(getProducts()); //!Trae el array de productos a los 2 segundos
-    });
-    getWine.then((res) => {
-      setVinoSeleccionado(res.find((item) => item.id === iditem));
+    const dataBase = getFirestore();
+
+    let documento = doc(dataBase, 'products', iditem);
+
+    getDoc(documento).then((item) => {
+      setVinoSeleccionado({ id: item.id, ...item.data() });
     });
   }, [iditem]);
 

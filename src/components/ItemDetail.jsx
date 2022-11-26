@@ -10,9 +10,15 @@ import ItemCount from './ItemCount';
 import { cartContext } from '../context/CartContextComponent';
 
 export default function ItemDetail({ item }) {
+  const { cart, addItem } = useContext(cartContext);
+
+  // useEffect(() => {
+  //   console.log(cart);
+  // }, [cart]);
   const onAdd = (quantity) => {
     //! quantity llega hasta aca desde el valor count en ItemCount
     alert(`Agregaste ${quantity} unidades de ${item.nombre}`);
+    addItem(item, quantity);
   };
 
   const [renderStock, setRenderStock] = useState(item.stock);
@@ -31,7 +37,7 @@ export default function ItemDetail({ item }) {
         <>
           <Card sx={{ maxWidth: 345 }}>
             <CardHeader title={item.nombre} subheader={`Categoria del vino: ${item.estilo}`} />
-            <CardMedia component="img" height="450" image={item.imagen} alt="vino elegido" />
+            <CardMedia component="img" height="450" image={item.url} alt="vino elegido" />
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 {`Bodega: ${item.bodega}`}

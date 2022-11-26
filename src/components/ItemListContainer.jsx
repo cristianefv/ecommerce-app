@@ -35,7 +35,6 @@ export default function ItemListContainer() {
           stock: element.data().stock,
         };
       });
-      console.log(arrayProducts);
 
       setVinoteca(arrayProducts);
     });

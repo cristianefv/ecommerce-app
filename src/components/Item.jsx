@@ -36,6 +36,5 @@ export default function Item({ item }) {
         </Button>
       </Card>
     </div>
-    //! HACER RETURN QUE ME LLEVE AL ID (DETAIL)
   );
 }

@@ -24,7 +24,7 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
   // }, [initial]);
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
   }, [cart]);
 
   // useEffect(() => {
