@@ -11,6 +11,11 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
   const [nuevoStock, setNuevoStock] = useState(item.stock);
   const [seAgrego, setSeAgrego] = useState(false);
 
+  const [cant, setCant] = React.useState(0);
+  React.useEffect(() => {
+    setCant(cart.length);
+  }, [cart]);
+
   // const onAdd = (quantity) => {
   //   // //! quantity llega hasta aca desde el valor count en ItemCount
   //   // console.log(`Agregaste ${quantity} unidades de ${item.nombre}`);
@@ -88,7 +93,7 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
           </Button>
         )}
 
-        <CartWidget />
+        <CartWidget cant={cant} />
       </div>
     </div>
     //! onAdd(count) le manda el dato a (quantity) en ItemDetail porque esta declarada ahi

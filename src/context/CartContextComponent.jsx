@@ -21,9 +21,17 @@ export default function CartContextComponent({ children }) {
     }
   };
 
+  const removeItem = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
+  const clearCart = () => {
+    setCart([]);
+  };
+
   useEffect(() => {
     console.log(cart);
   }, [cart]);
 
-  return <cartContext.Provider value={{ cart, addItem, x: 10 }}>{children}</cartContext.Provider>;
+  return <cartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>{children}</cartContext.Provider>;
 }

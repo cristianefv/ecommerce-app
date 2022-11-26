@@ -17,7 +17,6 @@ export default function ItemDetail({ item }) {
   // }, [cart]);
   const onAdd = (quantity) => {
     //! quantity llega hasta aca desde el valor count en ItemCount
-    alert(`Agregaste ${quantity} unidades de ${item.nombre}`);
     addItem(item, quantity);
   };
 

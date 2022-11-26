@@ -5,16 +5,12 @@ import { Link } from 'react-router-dom';
 import '../styles/CartWidget.css';
 
 //! PASAR POR PROP LA CANTIDAD DE ITEMS EN CART PARA AGREGARLA A "badgeContent"
-export default function CartWidget() {
-  const seeCart = () => {
-    console.log('viendo carrito');
-  };
-
+export default function CartWidget({ cant }) {
   return (
     <>
       <Link to="/cart" size="large" aria-label="show 0 new items" color="white">
-        <Badge badgeContent={2} color="error">
-          <ShoppingCartIcon onClick={seeCart} />
+        <Badge badgeContent={cant} color="error">
+          <ShoppingCartIcon />
         </Badge>
       </Link>
     </>

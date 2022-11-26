@@ -8,13 +8,20 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import React from 'react';
+import * as React from 'react';
 import Logo from '../images/iconos/logo.svg';
 import '../styles/Navbar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { cartContext } from '../context/CartContextComponent';
 
 export default function Navbar() {
+  const { cart } = React.useContext(cartContext);
+  const [cant, setCant] = React.useState(0);
+  React.useEffect(() => {
+    setCant(cart.length);
+  }, [cart]);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = [
     {
@@ -117,7 +124,7 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
-          <CartWidget />
+          <CartWidget cant={cant} />
         </Toolbar>
       </Container>
     </AppBar>
