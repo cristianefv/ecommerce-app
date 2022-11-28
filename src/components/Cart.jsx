@@ -1,4 +1,5 @@
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -12,7 +13,7 @@ import * as React from 'react';
 import { cartContext } from '../context/CartContextComponent';
 
 export default function Cart() {
-  const { cart, removeItem } = React.useContext(cartContext);
+  const { cart, removeItem, clearCart } = React.useContext(cartContext);
   const cartDetail = [...cart];
 
   React.useEffect(() => {
@@ -24,13 +25,7 @@ export default function Cart() {
     return total.reduce((acumulado, suma) => acumulado + suma, 0);
   }
 
-  const handleDelete = () => {
-    console.info('Click en el icono de basura');
-  };
-
-  const deleteItem = (cart) => {
-    removeItem(cart);
-  };
+  const handleDelete = () => {};
 
   return (
     <>
@@ -45,7 +40,7 @@ export default function Cart() {
               <TableCell align="right">Cantidad</TableCell>
               <TableCell align="right">Precio unitario</TableCell>
               <TableCell align="right">Importe</TableCell>
-              <TableCell align="right">Eliminar</TableCell>
+              <TableCell align="right">Eliminar producto</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -60,7 +55,7 @@ export default function Cart() {
                 <TableCell align="right">{`$${item.precio}`}</TableCell>
                 <TableCell align="right">{`$${item.precio * item.quantity}`}</TableCell>
                 <TableCell align="right">
-                  <Chip label="Eliminar" onClick={deleteItem} onDelete={deleteItem} deleteIcon={<DeleteIcon />} variant="outlined" />
+                  <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={handleDelete} deleteIcon={<DeleteIcon />} variant="outlined" />
                 </TableCell>
               </TableRow>
             ))}
@@ -72,6 +67,8 @@ export default function Cart() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <Button onClick={() => clearCart()}>VACIAR CARRITO</Button>
     </>
   );
 }
