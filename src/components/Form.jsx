@@ -22,10 +22,7 @@ export default function Form() {
     });
 
     getProvincias.then((res) => setProvincia(provincias));
-    console.log(provincia[2]);
   });
-  let i = 0;
-  provincia.forEach((item) => console.log(item[i].nombre));
 
   return (
     <>
@@ -59,6 +56,7 @@ export default function Form() {
             <FormGroup>
               <FormControlLabel
                 control={<Checkbox defaultChecked />}
+                required
                 label="Acepto informar el pago mediante mail a compras@perfildelvino.com.ar antes de la fecha de vencimiento de mi reserva (3 días) y comprendo que de no hacerlo mi pedido será dado de baja teniendo que volver a realizar uno nuevo con los precios y stock actualizados."
               />
             </FormGroup>
@@ -71,11 +69,6 @@ export default function Form() {
                     {item.nombre}
                   </MenuItem>
                 ))}
-                {/* {provincia.forEach((item) => {
-                  <MenuItem key={item.id} value={item.nombre}>
-                    {item.nombre}
-                  </MenuItem>;
-                })} */}
               </Select>
             </FormControl>
           </div>
