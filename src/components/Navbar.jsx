@@ -56,14 +56,6 @@ export default function Navbar() {
         </Link>
       ),
     },
-    {
-      id: 5,
-      html: (
-        <Link to="/contacto" style={{ color: 'white', textDecoration: 'none' }}>
-          contacto
-        </Link>
-      ),
-    },
   ];
 
   const handleOpenNavMenu = (event) => {

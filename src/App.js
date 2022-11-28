@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import '../src/App.css';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
-import Contacto from './components/Contacto';
 import Footer from './components/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
@@ -16,8 +15,6 @@ export default function App() {
     <>
       <CartContextComponent>
         <BrowserRouter>
-          {/* //! COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS */}
-          {/* //!ACA ABAJO DELCARO RUTAS PUNTUALES */}
           <Title />
           <Navbar />
           <Routes>
@@ -25,10 +22,8 @@ export default function App() {
             <Route path="/estilo/:idcategory" element={<ItemListContainer />} />
             <Route path="/vino-seleccionado/:iditem" element={<ItemDetailContainer />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/contacto" element={<Contacto />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-          {/* //! COMPONENTES QUE QUIERO QUE ESTEN EN TODAS LAS RUTAS ABAJO DE TODO */}
           <Footer />
         </BrowserRouter>
       </CartContextComponent>
