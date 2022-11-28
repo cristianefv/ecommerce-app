@@ -5,9 +5,9 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
-import React, { useState, useEffect, useContext } from 'react';
-import ItemCount from './ItemCount';
+import React, { useContext, useEffect, useState } from 'react';
 import { cartContext } from '../context/CartContextComponent';
+import ItemCount from './ItemCount';
 
 export default function ItemDetail({ item }) {
   const { addItem } = useContext(cartContext);

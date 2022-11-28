@@ -28,10 +28,6 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
   //   console.log(`se puede empezar a elegir ${initial} cantidad`);
   // }, [initial]);
 
-  useEffect(() => {
-    // console.log(cart);
-  }, [cart]);
-
   // useEffect(() => {
   //   console.log('count esta en: ', count);
   // }, [count]);
