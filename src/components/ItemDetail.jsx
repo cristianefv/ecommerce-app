@@ -10,7 +10,7 @@ import ItemCount from './ItemCount';
 import { cartContext } from '../context/CartContextComponent';
 
 export default function ItemDetail({ item }) {
-  const { cart, addItem } = useContext(cartContext);
+  const { addItem } = useContext(cartContext);
 
   // useEffect(() => {
   //   console.log(cart);

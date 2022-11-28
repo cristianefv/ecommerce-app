@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createContext } from 'react';
 
 export const cartContext = createContext();
@@ -28,10 +28,6 @@ export default function CartContextComponent({ children }) {
   const clearCart = () => {
     setCart([]);
   };
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
 
   return <cartContext.Provider value={{ cart, addItem, removeItem, clearCart }}>{children}</cartContext.Provider>;
 }
