@@ -23,7 +23,6 @@ export default function CartContextComponent({ children }) {
 
   const removeItem = (id) => {
     setCart(cart.filter((item) => item.id !== id));
-    console.log(`Quiere elminar este producto`);
   };
 
   const clearCart = () => {

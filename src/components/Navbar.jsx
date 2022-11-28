@@ -56,18 +56,8 @@ export default function Navbar() {
         </Link>
       ),
     },
-
     {
       id: 5,
-      html: (
-        <Link to="/checkout" style={{ color: 'white', textDecoration: 'none' }}>
-          checkout
-        </Link>
-      ),
-    },
-
-    {
-      id: 6,
       html: (
         <Link to="/contacto" style={{ color: 'white', textDecoration: 'none' }}>
           contacto

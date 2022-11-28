@@ -2,73 +2,104 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { cartContext } from '../context/CartContextComponent';
 
 export default function Cart() {
   const { cart, removeItem, clearCart } = React.useContext(cartContext);
-  const cartDetail = [...cart];
+  const cartAux = [...cart];
 
   React.useEffect(() => {
     console.log(cart);
   }, [cart]);
 
   function subtotalPrice() {
-    const total = cartDetail.map((item) => item.precio * item.quantity);
+    const total = cartAux.map((item) => item.precio * item.quantity);
     return total.reduce((acumulado, suma) => acumulado + suma, 0);
   }
 
   const handleDelete = () => {};
 
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+    '&:last-child td, &:last-child th': {
+      border: 0,
+    },
+  }));
+
   return (
     <>
       <h1>PRODUCTOS SELECCIONADOS</h1>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <TableCell>Etiqueta</TableCell>
-              <TableCell align="right">Nombre</TableCell>
-              <TableCell align="right">Añada</TableCell>
-              <TableCell align="right">Cantidad</TableCell>
-              <TableCell align="right">Precio unitario</TableCell>
-              <TableCell align="right">Importe</TableCell>
-              <TableCell align="right">Eliminar producto</TableCell>
+              <StyledTableCell>Etiqueta</StyledTableCell>
+              <StyledTableCell align="right">Nombre</StyledTableCell>
+              <StyledTableCell align="right">Añada</StyledTableCell>
+              <StyledTableCell align="right">Cantidad</StyledTableCell>
+              <StyledTableCell align="right">Precio unitario</StyledTableCell>
+              <StyledTableCell align="right">Importe</StyledTableCell>
+              <StyledTableCell align="right">Eliminar producto</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {cartDetail.map((item) => (
-              <TableRow align="right" key={item.nombre}>
-                <TableCell>
+            {cartAux.map((item) => (
+              <StyledTableRow key={item.nombre}>
+                <StyledTableCell component="th" scope="row">
                   <img src={`${item.url}`} alt={item.nombre} />
-                </TableCell>
-                <TableCell align="right">{item.nombre}</TableCell>
-                <TableCell align="right">{item.aniada}</TableCell>
-                <TableCell align="right">{item.quantity}</TableCell>
-                <TableCell align="right">{`$${item.precio}`}</TableCell>
-                <TableCell align="right">{`$${item.precio * item.quantity}`}</TableCell>
-                <TableCell align="right">
+                </StyledTableCell>
+                <StyledTableCell align="right">{item.nombre}</StyledTableCell>
+                <StyledTableCell align="right">{item.aniada}</StyledTableCell>
+                <StyledTableCell align="right">{`${item.quantity} unidades`}</StyledTableCell>
+                <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
+                <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
+
+                <StyledTableCell align="right">
                   <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={handleDelete} deleteIcon={<DeleteIcon />} variant="outlined" />
-                </TableCell>
-              </TableRow>
+                </StyledTableCell>
+              </StyledTableRow>
             ))}
             <TableRow>
               <TableCell rowSpan={3} />
-              <TableCell colSpan={2}>Subtotal a abonar</TableCell>
-              <TableCell align="right">{cartDetail.length ? <>${subtotalPrice()}</> : <>$0</>}</TableCell>
+              <TableCell colSpan={3}>Subtotal a abonar</TableCell>
+              <TableCell align="right">{cartAux.length ? <>${subtotalPrice()}</> : <>$0</>}</TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
 
-      <Button onClick={() => clearCart()}>VACIAR CARRITO</Button>
+      <>{cartAux.length ? <Button onClick={() => clearCart()}>VACIAR CARRITO</Button> : ''}</>
+
+      <>
+        {cartAux.length ? (
+          <Button>
+            <Link to="/checkout">Ir a pagar </Link>
+          </Button>
+        ) : (
+          ''
+        )}
+      </>
     </>
   );
 }
