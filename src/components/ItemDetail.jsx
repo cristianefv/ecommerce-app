@@ -47,8 +47,14 @@ export default function ItemDetail({ item }) {
               <Typography variant="h6" color="text.primary">
                 {`Precio: $${item.precio}`}
               </Typography>
-              <Typography>{`Stock actual: ${renderStock} unidades `}</Typography>
+              <Typography>
+                <b>Stock actual: </b>
+                {renderStock} unidades
+              </Typography>
 
+              <Typography>
+                <b>Descripción:</b> {item.descripcion}
+              </Typography>
               <ItemCount renderizarStock={renderizarStock} initial={1} item={item} onAdd={onAdd} />
             </CardContent>
           </Card>

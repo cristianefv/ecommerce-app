@@ -16,18 +16,14 @@ import { cartContext } from '../context/CartContextComponent';
 export default function Cart() {
   const { cart, removeItem, clearCart } = React.useContext(cartContext);
   const cartAux = [...cart];
-
   React.useEffect(() => {
     console.log(cart);
   }, [cart]);
-
   function subtotalPrice() {
     const total = cartAux.map((item) => item.precio * item.quantity);
     return total.reduce((acumulado, suma) => acumulado + suma, 0);
   }
-
   const handleDelete = () => {};
-
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -37,7 +33,6 @@ export default function Cart() {
       fontSize: 14,
     },
   }));
-
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
@@ -46,7 +41,6 @@ export default function Cart() {
       border: 0,
     },
   }));
-
   return (
     <>
       {cart.length ? (
@@ -76,8 +70,7 @@ export default function Cart() {
                     <StyledTableCell align="right">{`${item.quantity} unidades`}</StyledTableCell>
                     <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
                     <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
-
-                    <StyledTableCell align="right">
+                    <StyledTableCell align="ri`ght">
                       <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={handleDelete} deleteIcon={<DeleteIcon />} variant="outlined" />
                     </StyledTableCell>
                   </StyledTableRow>
@@ -90,9 +83,7 @@ export default function Cart() {
               </TableBody>
             </Table>
           </TableContainer>
-
           <>{cartAux.length ? <Button onClick={() => clearCart()}>VACIAR CARRITO</Button> : ''}</>
-
           <>
             {cartAux.length ? (
               <Button>

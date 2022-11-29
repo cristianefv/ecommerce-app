@@ -1,0 +1,9 @@
+.titleCheckout {
+  display: flex;
+  justify-content: center;
+}
+.checkoutContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
