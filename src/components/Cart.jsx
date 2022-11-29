@@ -12,18 +12,15 @@ import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../context/CartContextComponent';
+import Counter from './Counter';
 
 export default function Cart() {
-  const { cart, removeItem, clearCart } = React.useContext(cartContext);
+  const { cart, removeItem, clearCart, totalToPay } = React.useContext(cartContext);
   const cartAux = [...cart];
   React.useEffect(() => {
     console.log(cart);
   }, [cart]);
-  function subtotalPrice() {
-    const total = cartAux.map((item) => item.precio * item.quantity);
-    return total.reduce((acumulado, suma) => acumulado + suma, 0);
-  }
-  const handleDelete = () => {};
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -45,6 +42,7 @@ export default function Cart() {
     <>
       {cart.length ? (
         <>
+          <Counter />
           <h1>PRODUCTOS SELECCIONADOS</h1>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -70,15 +68,15 @@ export default function Cart() {
                     <StyledTableCell align="right">{`${item.quantity} unidades`}</StyledTableCell>
                     <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
                     <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
-                    <StyledTableCell align="ri`ght">
-                      <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={handleDelete} deleteIcon={<DeleteIcon />} variant="outlined" />
+                    <StyledTableCell align="right">
+                      <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={() => removeItem(item.id)} deleteIcon={<DeleteIcon />} variant="outlined" />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))}
                 <TableRow>
                   <TableCell rowSpan={3} />
                   <TableCell colSpan={3}>Subtotal a abonar</TableCell>
-                  <TableCell align="right">{cartAux.length ? <>${subtotalPrice()}</> : <>$0</>}</TableCell>
+                  <TableCell align="right">{cartAux.length ? <>${totalToPay}</> : <>$0</>}</TableCell>
                 </TableRow>
               </TableBody>
             </Table>

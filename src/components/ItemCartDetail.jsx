@@ -27,14 +27,12 @@ const AccordionSummary = styled((props) => <MuiAccordionSummary expandIcon={<Arr
     marginLeft: theme.spacing(1),
   },
 }));
-
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
-
-export default function CartDetail() {
-  const { cart } = React.useContext(cartContext);
+export default function ItemCartDetail() {
+  const { cart, totalToPay } = React.useContext(cartContext);
   const cartDetail = [...cart];
 
   const [expanded, setExpanded] = React.useState('panel1');
@@ -42,11 +40,6 @@ export default function CartDetail() {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
-
-  function totalPrice() {
-    const total = cartDetail.map((item) => item.precio * item.quantity);
-    return total.reduce((acumulado, suma) => acumulado + suma, 0);
-  }
   return (
     <>
       <div className="accordionContainer">
@@ -94,7 +87,7 @@ export default function CartDetail() {
         </Accordion>
         <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
           <Typography className="totalPrice">
-            <b>TOTAL:</b> {cartDetail.length ? <b>${totalPrice()}</b> : <b>$0</b>}
+            <b>TOTAL:</b> {cartDetail.length ? <b>${totalToPay}</b> : <b>$0</b>}
           </Typography>
         </Accordion>
       </div>

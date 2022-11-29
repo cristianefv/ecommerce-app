@@ -30,6 +30,7 @@ export default function ItemListContainer() {
           estilo: element.data().estilo,
           cepa: element.data().cepa,
           aniada: element.data().aniada,
+          descripcion: element.data().descripcion,
           precio: element.data().precio,
           imagen: element.data().url,
           stock: element.data().stock,
