@@ -9,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { provincias } from '../data/provincias';
+import { Button } from '@mui/material';
 
 export default function Form() {
   const [provincia, setProvincia] = React.useState([]);
@@ -30,7 +31,7 @@ export default function Form() {
         <Box
           component="form"
           sx={{
-            '& .MuiTextField-root': { m: 1, width: '25ch' },
+            '& .MuiTextField-root': { m: 2, width: '40ch' },
           }}
           noValidate
           autoComplete="off"
@@ -51,28 +52,9 @@ export default function Form() {
 
             <TextField required id="outlined-required" label="Domicilio" defaultValue="" />
             <TextField required id="outlined-required" label="Codigo Postal" defaultValue="" />
-            <TextField id="outlined-multiline-static" label="Indicacion que facilite la entrega del pedido" multiline rows={6} />
-
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                required
-                label="Acepto informar el pago mediante mail a compras@perfildelvino.com.ar antes de la fecha de vencimiento de mi reserva (3 días) y comprendo que de no hacerlo mi pedido será dado de baja teniendo que volver a realizar uno nuevo con los precios y stock actualizados."
-              />
-            </FormGroup>
-
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Provincia</InputLabel>
-              <Select labelId="demo-simple-select-label" id="demo-simple-select" value="" label="Provincias" onChange={handleChange}>
-                {provincia.map((item) => (
-                  <MenuItem key={item.id} value={item.nombre}>
-                    {item.nombre}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
           </div>
         </Box>
+        <Button>Confirmar Datos</Button>
       </div>
     </>
   );

@@ -106,7 +106,7 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
-          <CartWidget cant={cant} />
+          {cart.length ? <CartWidget cant={cant} /> : ''}
         </Toolbar>
       </Container>
     </AppBar>
