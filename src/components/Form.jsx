@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import { cartContext } from '../context/CartContextComponent';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export default function Form() {
   const { cart, totalToPay } = React.useContext(cartContext);
@@ -17,6 +18,13 @@ export default function Form() {
     alert(`${name} ${surname} Quiere comprar ${JSON.stringify(cart)} - Total: ${totalToPay}`);
     const order = { user: { nombre: name, apellido: surname, email: email, telefono: tel, direccion: adress, codigoPostal: postalCode }, carrito: cart, total: totalToPay };
     console.log(order);
+
+    const dataBase = getFirestore();
+
+    const orders = collection(dataBase, 'orders');
+    addDoc(orders, order).then((orderCreated) => {
+      console.log(orderCreated.id);
+    });
   };
   return (
     <>
