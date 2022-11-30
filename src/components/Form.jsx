@@ -3,29 +3,21 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import { cartContext } from '../context/CartContextComponent';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 export default function Form() {
-  const { cart, totalToPay } = React.useContext(cartContext);
-  const [name, setName] = React.useState('');
-  const [surname, setSurname] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [tel, setTel] = React.useState('');
-  const [adress, setAdress] = React.useState('');
-  const [postalCode, setPostalCode] = React.useState('');
+  const { name, surname, email, tel, adress, postalCode, setName, setSurname, setEmail, setTel, setAdress, setPostalCode, handleClickBuyButton } = React.useContext(cartContext);
 
-  const handleClickBuyButton = () => {
-    const order = { user: { nombre: name, apellido: surname, email: email, telefono: tel, direccion: adress, codigoPostal: postalCode }, carrito: cart, total: totalToPay };
-
-    const dataBase = getFirestore();
-
-    const orders = collection(dataBase, 'orders');
-    addDoc(orders, order).then((orderCreated) => {
-      console.log(`Se genero el pedido con el id: ${orderCreated.id}`);
-    });
-  };
   return (
     <>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      ></Box>
+
       <div className="formContainer">
         <Box
           component="form"
@@ -37,6 +29,7 @@ export default function Form() {
         >
           <div className="textFieldContainer">
             <TextField style={{ width: 450 }} required id="outlined-required" label="Nombre" defaultValue={name} onChange={(e) => setName(e.target.value)} />
+
             <TextField style={{ width: 450 }} required id="outlined-required" label="Apellido" defaultValue={surname} onChange={(e) => setSurname(e.target.value)} />
             <TextField style={{ width: 450 }} required id="outlined-required" label="Email" defaultValue={email} type="email" onChange={(e) => setEmail(e.target.value)} />
             <TextField
@@ -54,7 +47,13 @@ export default function Form() {
             <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
           </div>
         </Box>
-        <Button onClick={handleClickBuyButton}>Confirmar Datos</Button>
+        <Button
+          onClick={() => {
+            handleClickBuyButton();
+          }}
+        >
+          Confirmar Datos
+        </Button>
       </div>
     </>
   );

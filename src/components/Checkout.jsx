@@ -7,11 +7,11 @@ import Form from './Form';
 import ItemCartDetail from './ItemCartDetail';
 
 export default function Checkout() {
-  const { cart } = React.useContext(cartContext);
+  const { cart, orderCreated } = React.useContext(cartContext);
 
   return (
     <>
-      {cart.length ? (
+      {orderCreated === '' ? (
         <>
           <h1 className="titleCheckout">Finaliza tu compra</h1>
           <div className="checkoutContainer">
@@ -19,6 +19,8 @@ export default function Checkout() {
             <ItemCartDetail />
           </div>
         </>
+      ) : cart.length ? (
+        <>TU NUMERO DE PEDIDO ES: {orderCreated}</>
       ) : (
         <>
           <h1>NO TENES NADA QUE HACER ACA</h1>
