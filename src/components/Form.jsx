@@ -15,15 +15,13 @@ export default function Form() {
   const [postalCode, setPostalCode] = React.useState('');
 
   const handleClickBuyButton = () => {
-    alert(`${name} ${surname} Quiere comprar ${JSON.stringify(cart)} - Total: ${totalToPay}`);
     const order = { user: { nombre: name, apellido: surname, email: email, telefono: tel, direccion: adress, codigoPostal: postalCode }, carrito: cart, total: totalToPay };
-    console.log(order);
 
     const dataBase = getFirestore();
 
     const orders = collection(dataBase, 'orders');
     addDoc(orders, order).then((orderCreated) => {
-      console.log(orderCreated.id);
+      console.log(`Se genero el pedido con el id: ${orderCreated.id}`);
     });
   };
   return (
@@ -41,7 +39,6 @@ export default function Form() {
             <TextField style={{ width: 450 }} required id="outlined-required" label="Nombre" defaultValue={name} onChange={(e) => setName(e.target.value)} />
             <TextField style={{ width: 450 }} required id="outlined-required" label="Apellido" defaultValue={surname} onChange={(e) => setSurname(e.target.value)} />
             <TextField style={{ width: 450 }} required id="outlined-required" label="Email" defaultValue={email} type="email" onChange={(e) => setEmail(e.target.value)} />
-
             <TextField
               style={{ width: 450 }}
               id="outlined-number"
@@ -53,7 +50,6 @@ export default function Form() {
               defaultValue={tel}
               onChange={(e) => setTel(e.target.value)}
             />
-
             <TextField style={{ width: 450 }} required id="outlined-required" label="Domicilio" defaultValue={adress} onChange={(e) => setAdress(e.target.value)} />
             <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
           </div>

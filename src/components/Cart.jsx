@@ -17,10 +17,6 @@ import Counter from './Counter';
 export default function Cart() {
   const { cart, removeItem, clearCart, totalToPay } = React.useContext(cartContext);
   const cartAux = [...cart];
-  React.useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
