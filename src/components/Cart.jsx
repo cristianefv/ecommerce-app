@@ -15,7 +15,7 @@ import { cartContext } from '../context/CartContextComponent';
 import Counter from './Counter';
 
 export default function Cart() {
-  const { cart, removeItem, clearCart, totalToPay } = React.useContext(cartContext);
+  const { cart, removeItem, clearCart, totalToPay, defaultUserData } = React.useContext(cartContext);
   const cartAux = [...cart];
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -34,6 +34,7 @@ export default function Cart() {
       border: 0,
     },
   }));
+
   return (
     <>
       {cart.length ? (
@@ -81,7 +82,9 @@ export default function Cart() {
           <>
             {cartAux.length ? (
               <Button>
-                <Link to="/checkout">Ir a pagar </Link>
+                <Link to="/checkout" onClick={() => defaultUserData()}>
+                  Ir a pagar
+                </Link>
               </Button>
             ) : (
               ''

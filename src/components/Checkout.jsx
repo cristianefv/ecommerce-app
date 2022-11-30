@@ -5,13 +5,14 @@ import '../styles/Form.css';
 import '../styles/ItemCartDetail.css';
 import Form from './Form';
 import ItemCartDetail from './ItemCartDetail';
+import PurchasedOrder from './PurchasedOrder';
 
 export default function Checkout() {
   const { cart, orderCreated } = React.useContext(cartContext);
 
   return (
     <>
-      {orderCreated === '' ? (
+      {cart.length !== 0 ? (
         <>
           <h1 className="titleCheckout">Finaliza tu compra</h1>
           <div className="checkoutContainer">
@@ -19,10 +20,13 @@ export default function Checkout() {
             <ItemCartDetail />
           </div>
         </>
-      ) : cart.length ? (
-        <>TU NUMERO DE PEDIDO ES: {orderCreated}</>
+      ) : orderCreated !== '' ? (
+        <>
+          <PurchasedOrder />
+        </>
       ) : (
         <>
+          {/* //!SPINNER */}
           <h1>NO TENES NADA QUE HACER ACA</h1>
         </>
       )}

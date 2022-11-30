@@ -47,13 +47,7 @@ export default function Form() {
             <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
           </div>
         </Box>
-        <Button
-          onClick={() => {
-            handleClickBuyButton();
-          }}
-        >
-          Confirmar Datos
-        </Button>
+        <Button onClick={() => handleClickBuyButton()}>CONFIRMAR COMPRA</Button>
       </div>
     </>
   );

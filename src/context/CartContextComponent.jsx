@@ -7,7 +7,7 @@ export const cartContext = createContext();
 export default function CartContextComponent({ children }) {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem(`cart`)) || []);
   const [totalToPay, setTotalToPay] = useState(0);
-  //!DATOS PARA EL FORM
+
   const [name, setName] = React.useState('');
   const [surname, setSurname] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -72,12 +72,22 @@ export default function CartContextComponent({ children }) {
     }
 
     addDoc(orders, order).then((orderCreated) => {
-      console.log(`Se genero el pedido con el id: ${orderCreated.id}`);
       setOrderCreated(orderCreated.id);
-      console.log(orderCreated.id);
+    });
+
+    setTimeout(() => {
+      clearCart();
     });
   };
-
+  const defaultUserData = () => {
+    setName('');
+    setSurname('');
+    setEmail('');
+    setTel('');
+    setAdress('');
+    setPostalCode('');
+    setOrderCreated('');
+  };
   return (
     <cartContext.Provider
       value={{
@@ -102,6 +112,7 @@ export default function CartContextComponent({ children }) {
         validateEmail,
         orderCreated,
         setOrderCreated,
+        defaultUserData,
       }}
     >
       {children}

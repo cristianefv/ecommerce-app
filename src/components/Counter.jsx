@@ -5,7 +5,6 @@ export default function Counter() {
   const { cart } = useContext(cartContext);
   const cartCount = [...cart];
 
-  console.log(cartCount);
   return (
     <>
       <>{JSON.stringify(cartCount)}</>
