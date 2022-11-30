@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/system';
 import React, { useContext, useEffect, useState } from 'react';
+import { Watch } from 'react-loader-spinner';
 import { cartContext } from '../context/CartContextComponent';
 import ItemCount from './ItemCount';
 
@@ -62,9 +63,9 @@ export default function ItemDetail({ item }) {
         </>
       ) : (
         <>
-          <Stack sx={{ width: '100%', color: 'red' }} spacing={2}>
-            <LinearProgress color="inherit" />
-          </Stack>
+          <div className="watchContainer">
+            <Watch height="250" width="250" radius="48" color="red" ariaLabel="watch-loading" wrapperStyle={{}} wrapperClassName="" visible={true} />
+          </div>
         </>
       )}
     </div>

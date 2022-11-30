@@ -2,6 +2,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Stack from '@mui/material/Stack';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { Watch } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import '../styles/ItemListContainer.css';
 import ItemList from './ItemList';
@@ -44,9 +45,9 @@ export default function ItemListContainer() {
   return (
     <>
       {!vinoteca.length && (
-        <Stack sx={{ width: '100%', color: 'red' }} spacing={2}>
-          <LinearProgress color="inherit" />
-        </Stack>
+        <div className="watchContainer">
+          <Watch height="250" width="250" radius="48" color="red" ariaLabel="watch-loading" wrapperStyle={{}} wrapperClassName="" visible={true} />
+        </div>
       )}
       <ItemList vinoteca={vinoteca} />
     </>

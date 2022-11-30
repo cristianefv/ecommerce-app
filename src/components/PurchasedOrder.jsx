@@ -26,7 +26,6 @@ export default function PurchasedOrder() {
             <h3>
               <b>A continuacion, detallamos la informacion de su pedido.</b>
             </h3>
-
             <ul>
               <li>
                 Nombre y Apellido: {name} {surname}
