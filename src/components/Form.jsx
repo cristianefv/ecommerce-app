@@ -18,36 +18,32 @@ export default function Form() {
         noValidate
         autoComplete="off"
       ></Box>
-
-      <div className="formContainer">
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '20ch' },
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '20ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField style={{ width: 450 }} required id="outlined-required" label="Nombre" defaultValue={name} onChange={(e) => setName(e.target.value)} />
+        <TextField style={{ width: 450 }} required id="outlined-required" label="Apellido" defaultValue={surname} onChange={(e) => setSurname(e.target.value)} />
+        <TextField style={{ width: 450 }} required id="outlined-required" label="Email" defaultValue={email} type="email" onChange={(e) => setEmail(e.target.value)} />
+        <TextField
+          style={{ width: 450 }}
+          id="outlined-number"
+          label="Teléfono / Celular"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
           }}
-          noValidate
-          autoComplete="off"
-        >
-          <div className="textFieldContainer">
-            <TextField style={{ width: 450 }} required id="outlined-required" label="Nombre" defaultValue={name} onChange={(e) => setName(e.target.value)} />
-
-            <TextField style={{ width: 450 }} required id="outlined-required" label="Apellido" defaultValue={surname} onChange={(e) => setSurname(e.target.value)} />
-            <TextField style={{ width: 450 }} required id="outlined-required" label="Email" defaultValue={email} type="email" onChange={(e) => setEmail(e.target.value)} />
-            <TextField
-              style={{ width: 450 }}
-              id="outlined-number"
-              label="Teléfono / Celular"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              defaultValue={tel}
-              onChange={(e) => setTel(e.target.value)}
-            />
-            <TextField style={{ width: 450 }} required id="outlined-required" label="Domicilio" defaultValue={adress} onChange={(e) => setAdress(e.target.value)} />
-            <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
-          </div>
-        </Box>
+          defaultValue={tel}
+          onChange={(e) => setTel(e.target.value)}
+        />
+        <TextField style={{ width: 450 }} required id="outlined-required" label="Domicilio" defaultValue={adress} onChange={(e) => setAdress(e.target.value)} />
+        <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+      </Box>
+      <div className="confirmPurchase">
         <Stack direction="row" spacing={2}>
           <Button onClick={() => handleClickBuyButton()} variant="contained" color="success">
             Confirmar compra

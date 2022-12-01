@@ -1,6 +1,7 @@
 .count-container {
   width: 300px;
   margin: auto;
+  padding-top: 30px;
 }
 .count {
   background-color: white;
@@ -10,6 +11,7 @@
   display: flex;
   justify-content: space-around;
   margin: auto;
+  margin-bottom: 30px;
   border-radius: 20px;
 }
 .btn-less {

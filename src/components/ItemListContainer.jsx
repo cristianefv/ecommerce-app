@@ -2,7 +2,6 @@ import { collection, getDocs, getFirestore, query, where } from 'firebase/firest
 import React, { useEffect, useState } from 'react';
 import { Watch } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
-import '../styles/ItemListContainer.css';
 import ItemList from './ItemList';
 
 export default function ItemListContainer() {

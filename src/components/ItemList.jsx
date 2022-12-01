@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import '../styles/ItemListContainer.css';
 
 export default function ItemList({ vinoteca }) {
   return (

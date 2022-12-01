@@ -12,7 +12,6 @@ import TableRow from '@mui/material/TableRow';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../context/CartContextComponent';
-import Counter from './Counter';
 
 export default function Cart() {
   const { cart, removeItem, clearCart, totalToPay, defaultUserData } = React.useContext(cartContext);
@@ -40,56 +39,57 @@ export default function Cart() {
     <>
       {cart.length ? (
         <>
-          <Counter />
-          <h1>PRODUCTOS SELECCIONADOS</h1>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>Etiqueta</StyledTableCell>
-                  <StyledTableCell align="right">Nombre</StyledTableCell>
-                  <StyledTableCell align="right">Añada</StyledTableCell>
-                  <StyledTableCell align="right">Cantidad</StyledTableCell>
-                  <StyledTableCell align="right">Precio unitario</StyledTableCell>
-                  <StyledTableCell align="right">Importe</StyledTableCell>
-                  <StyledTableCell align="right">Eliminar producto</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {cartAux.map((item) => (
-                  <StyledTableRow key={item.nombre}>
-                    <StyledTableCell component="th" scope="row">
-                      <img className="cart-img" src={`${item.url}`} alt={item.nombre} />
-                    </StyledTableCell>
-                    <StyledTableCell align="right">{item.nombre}</StyledTableCell>
-                    <StyledTableCell align="right">{item.aniada}</StyledTableCell>
-                    <StyledTableCell align="right">{`${item.quantity} unidades`}</StyledTableCell>
-                    <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
-                    <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
-                    <StyledTableCell align="right">
-                      <Chip label="Eliminar" color="error" onClick={() => removeItem(item.id)} onDelete={() => removeItem(item.id)} deleteIcon={<DeleteIcon />} variant="outlined" />
-                    </StyledTableCell>
-                  </StyledTableRow>
-                ))}
-                <TableRow>
-                  <TableCell rowSpan={3} />
-                  <TableCell colSpan={3}>
-                    <b>Total a abonar</b>
-                  </TableCell>
-                  <TableCell align="right">
-                    {cartAux.length ? (
-                      <>
-                        <b>${totalToPay}</b>
-                      </>
-                    ) : (
-                      <>$0</>
-                    )}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <h1 className="title-cart">PRODUCTOS SELECCIONADOS</h1>
 
+          <div className="table-ctn">
+            <TableContainer sx={{ width: '50vw' }} component={Paper}>
+              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell>Etiqueta</StyledTableCell>
+                    <StyledTableCell align="right">Nombre</StyledTableCell>
+                    <StyledTableCell align="right">Añada</StyledTableCell>
+                    <StyledTableCell align="right">Cantidad</StyledTableCell>
+                    <StyledTableCell align="right">Precio unitario</StyledTableCell>
+                    <StyledTableCell align="right">Importe</StyledTableCell>
+                    <StyledTableCell align="right">Eliminar producto</StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {cartAux.map((item) => (
+                    <StyledTableRow key={item.nombre}>
+                      <StyledTableCell component="th" scope="row">
+                        <img className="cart-img" src={`${item.url}`} alt={item.nombre} />
+                      </StyledTableCell>
+                      <StyledTableCell align="right">{item.nombre}</StyledTableCell>
+                      <StyledTableCell align="right">{item.aniada}</StyledTableCell>
+                      <StyledTableCell align="right">{`${item.quantity} unidades`}</StyledTableCell>
+                      <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
+                      <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
+                      <StyledTableCell align="right">
+                        <Chip label="Eliminar" color="error" onClick={() => removeItem(item.id)} onDelete={() => removeItem(item.id)} deleteIcon={<DeleteIcon />} variant="outlined" />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                  <TableRow>
+                    <TableCell rowSpan={3} />
+                    <TableCell colSpan={3}>
+                      <b>Total a abonar</b>
+                    </TableCell>
+                    <TableCell align="right">
+                      {cartAux.length ? (
+                        <>
+                          <b>${totalToPay}</b>
+                        </>
+                      ) : (
+                        <>$0</>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
           <div className="btn-container">
             <Button style={{ backgroundColor: '#009688', color: 'white' }} onClick={() => clearCart()}>
               VACIAR CARRITO

@@ -14,9 +14,11 @@ export default function Checkout() {
     <>
       {cart.length !== 0 ? (
         <>
-          <h1 className="titleCheckout">Finaliza tu compra</h1>
+          <h1 className="titleCheckout">FINALIZA TU COMPRA</h1>
           <div className="checkoutContainer">
-            <Form />
+            <div className="formContainer">
+              <Form />
+            </div>
             <ItemCartDetail />
           </div>
         </>

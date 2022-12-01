@@ -1,7 +1,3 @@
-.titleCheckout {
-  display: flex;
-  justify-content: center;
-}
 .checkoutContainer {
   display: flex;
   flex-flow: row nowrap;
@@ -22,5 +18,18 @@
 }
 .formContainer {
   width: 60rem;
+  height: fit-content;
   background-color: rgba(255, 255, 255, 0.651);
+  padding: 30px;
+  margin-bottom: 133px;
+}
+.table-ctn {
+  display: flex;
+  justify-content: center;
+}
+
+.confirmPurchase {
+  margin-top: 30px;
+  display: flex;
+  justify-content: right;
 }

@@ -1,3 +1,8 @@
+.cardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
 .MuiPaper-root.MuiPaper-elevation {
   background-color: lightgray;
 }
