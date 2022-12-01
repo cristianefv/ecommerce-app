@@ -1,7 +1,6 @@
 import React from 'react';
 import { cartContext } from '../context/CartContextComponent';
 import '../styles/Checkout.css';
-import '../styles/Form.css';
 import '../styles/ItemCartDetail.css';
 import Form from './Form';
 import ItemCartDetail from './ItemCartDetail';

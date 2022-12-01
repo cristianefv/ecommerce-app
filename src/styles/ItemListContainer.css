@@ -1,4 +1,5 @@
-.saludo {
-  text-align: center;
-  padding: 17.7%;
+.cardContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }

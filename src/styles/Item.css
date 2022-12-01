@@ -1,12 +1,10 @@
 .MuiPaper-root.MuiPaper-elevation {
   background-color: lightgray;
 }
-
 .card {
   margin: 30px;
   height: 550px;
 }
-
 .showDetail {
   color: white;
   background-color: black;
