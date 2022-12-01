@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import * as React from 'react';
 import { cartContext } from '../context/CartContextComponent';
+import Stack from '@mui/material/Stack';
 
 export default function Form() {
   const { name, surname, email, tel, adress, postalCode, setName, setSurname, setEmail, setTel, setAdress, setPostalCode, handleClickBuyButton } = React.useContext(cartContext);
@@ -47,7 +48,11 @@ export default function Form() {
             <TextField style={{ width: 450 }} required id="outlined-required" label="Codigo Postal" defaultValue={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
           </div>
         </Box>
-        <Button onClick={() => handleClickBuyButton()}>CONFIRMAR COMPRA</Button>
+        <Stack direction="row" spacing={2}>
+          <Button onClick={() => handleClickBuyButton()} variant="contained" color="success">
+            Confirmar compra
+          </Button>
+        </Stack>
       </div>
     </>
   );

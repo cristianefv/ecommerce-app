@@ -10,3 +10,13 @@
 .watchContainer {
   margin: 136px 740px;
 }
+.btn-container {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+.cart-img {
+  height: 100px;
+  border-radius: 20px;
+}

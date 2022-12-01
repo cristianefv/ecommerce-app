@@ -1,5 +1,3 @@
-import LinearProgress from '@mui/material/LinearProgress';
-import Stack from '@mui/material/Stack';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Watch } from 'react-loader-spinner';

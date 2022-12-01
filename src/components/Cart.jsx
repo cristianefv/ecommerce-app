@@ -17,13 +17,14 @@ import Counter from './Counter';
 export default function Cart() {
   const { cart, removeItem, clearCart, totalToPay, defaultUserData } = React.useContext(cartContext);
   const cartAux = [...cart];
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
+      fontSize: 18,
     },
   }));
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -58,7 +59,7 @@ export default function Cart() {
                 {cartAux.map((item) => (
                   <StyledTableRow key={item.nombre}>
                     <StyledTableCell component="th" scope="row">
-                      <img src={`${item.url}`} alt={item.nombre} />
+                      <img className="cart-img" src={`${item.url}`} alt={item.nombre} />
                     </StyledTableCell>
                     <StyledTableCell align="right">{item.nombre}</StyledTableCell>
                     <StyledTableCell align="right">{item.aniada}</StyledTableCell>
@@ -66,30 +67,39 @@ export default function Cart() {
                     <StyledTableCell align="right">{`$${item.precio}`}</StyledTableCell>
                     <StyledTableCell align="right">{`$${item.precio * item.quantity}`}</StyledTableCell>
                     <StyledTableCell align="right">
-                      <Chip label="Eliminar" onClick={() => removeItem(item.id)} onDelete={() => removeItem(item.id)} deleteIcon={<DeleteIcon />} variant="outlined" />
+                      <Chip label="Eliminar" color="error" onClick={() => removeItem(item.id)} onDelete={() => removeItem(item.id)} deleteIcon={<DeleteIcon />} variant="outlined" />
                     </StyledTableCell>
                   </StyledTableRow>
                 ))}
                 <TableRow>
                   <TableCell rowSpan={3} />
-                  <TableCell colSpan={3}>Subtotal a abonar</TableCell>
-                  <TableCell align="right">{cartAux.length ? <>${totalToPay}</> : <>$0</>}</TableCell>
+                  <TableCell colSpan={3}>
+                    <b>Total a abonar</b>
+                  </TableCell>
+                  <TableCell align="right">
+                    {cartAux.length ? (
+                      <>
+                        <b>${totalToPay}</b>
+                      </>
+                    ) : (
+                      <>$0</>
+                    )}
+                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
-          <>{cartAux.length ? <Button onClick={() => clearCart()}>VACIAR CARRITO</Button> : ''}</>
-          <>
-            {cartAux.length ? (
-              <Button>
-                <Link to="/checkout" onClick={() => defaultUserData()}>
-                  Ir a pagar
-                </Link>
-              </Button>
-            ) : (
-              ''
-            )}
-          </>
+
+          <div className="btn-container">
+            <Button style={{ backgroundColor: '#009688', color: 'white' }} onClick={() => clearCart()}>
+              VACIAR CARRITO
+            </Button>
+            <Button style={{ backgroundColor: 'purple', color: 'purple' }}>
+              <Link style={{ color: 'white', textDecorationStyle: 'none' }} to="/checkout" onClick={() => defaultUserData()}>
+                Ir a pagar
+              </Link>
+            </Button>
+          </div>
         </>
       ) : (
         <>

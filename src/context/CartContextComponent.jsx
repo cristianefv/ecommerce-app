@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import swal from 'sweetalert';
 
 export const cartContext = createContext();
 
 export default function CartContextComponent({ children }) {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem(`cart`)) || []);
   const [totalToPay, setTotalToPay] = useState(0);
-
   const [name, setName] = React.useState('');
   const [surname, setSurname] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -51,7 +51,13 @@ export default function CartContextComponent({ children }) {
   let validateEmail = (email) => {
     const emailReg = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (emailReg.test(email) === false) {
-      alert(`El mail ingresado no es valido`);
+      swal({
+        title: 'El mail ingresado no es valido',
+        text: 'Necesitamos su correo para poder mandarle la informacion del pedido',
+        icon: 'warning',
+        dangerMode: false,
+      });
+
       return false;
     }
     return true;
@@ -64,7 +70,12 @@ export default function CartContextComponent({ children }) {
     const orders = collection(dataBase, 'orders');
 
     if (name === `` || surname === `` || email === `` || tel === `` || adress === `` || postalCode === ``) {
-      alert(`Falta completar datos`);
+      swal({
+        title: 'Faltan ingresar datos!',
+        text: 'Complete todos los campos para poder generar el pedido!',
+        icon: 'warning',
+        dangerMode: false,
+      });
       return;
     }
     if (validateEmail(email) === false) {
