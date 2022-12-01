@@ -3,9 +3,24 @@
 }
 .card {
   margin: 30px;
-  height: 550px;
+  height: auto;
 }
 .showDetail {
   color: white;
   background-color: black;
+}
+.itemContainer {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  margin: 40px 0;
+}
+.viewDetail-ctn {
+  margin: auto;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.img-card {
+  width: 100%;
 }

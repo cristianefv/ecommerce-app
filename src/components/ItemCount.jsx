@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, useEffect, useContext } from 'react';
 import Button from '@mui/material/Button';
 import '../styles/ItemCount.css';
@@ -69,14 +70,28 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
       </div>
       <div className="btn-cart-container">
         {seAgrego ? (
-          <Link to={'/cart'}>IR AL CARRITO</Link>
+          <>
+            <div className="options-btn">
+              <Button style={{ marginRight: 30, backgroundColor: 'purple', color: 'purple' }}>
+                <Link style={{ color: 'white', textDecorationStyle: 'none' }} to="/cart">
+                  IR AL CARRITO
+                </Link>
+              </Button>
+
+              <Button style={{ marginLeft: 30, backgroundColor: 'green', color: 'green' }}>
+                <Link style={{ color: 'white', textDecorationStyle: 'none' }} to="/">
+                  SEGUIR COMPRANDO
+                </Link>
+              </Button>
+            </div>
+          </>
         ) : (
           <Button
             className="btn-onAdd"
             onClick={() => {
               onAdd(count);
               renderizarStock(nuevoStock);
-              // setSeAgrego(true);
+              setSeAgrego(true);
             }}
             disabled={nuevoStock < 1}
             color="success"
@@ -86,9 +101,14 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
             Agregar al carrito
           </Button>
         )}
-        {cart.length ? <CartWidget cant={cant} /> : ''}
+        {cart.length ? (
+          <div className="cartWidget-ctn">
+            <CartWidget cant={cant} />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     </div>
-    //! onAdd(count) le manda el dato a (quantity) en ItemDetail porque esta declarada ahi
   );
 }

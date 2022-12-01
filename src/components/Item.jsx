@@ -1,7 +1,6 @@
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +10,7 @@ export default function Item({ item }) {
   return (
     <div key={item.id}>
       <Card className="card" sx={{ maxWidth: 250 }}>
-        <CardMedia component="img" height="250" src={item.imagen} alt="vino en venta" />
+        <img className="img-card" component="img" height="250" src={item.imagen} alt={`${item.nombre} ${item.bodega}`} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {item.nombre}
@@ -29,11 +28,13 @@ export default function Item({ item }) {
             {`Precio: $${item.precio}`}
           </Typography>
         </CardContent>
-        <Button style={{ backgroundColor: 'black' }}>
-          <Link style={{ color: 'white' }} to={`/vino-seleccionado/${item.id}`}>
-            VER DETALLE
-          </Link>
-        </Button>
+        <div className="viewDetail-ctn">
+          <Button style={{ backgroundColor: 'black' }}>
+            <Link style={{ color: 'white' }} to={`/vino-seleccionado/${item.id}`}>
+              VER DETALLE
+            </Link>
+          </Button>
+        </div>
       </Card>
     </div>
   );
