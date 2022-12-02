@@ -1,9 +1,7 @@
-import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/Item.css';
 
 export default function Item({ item }) {
@@ -29,11 +27,11 @@ export default function Item({ item }) {
           </Typography>
         </CardContent>
         <div className="viewDetail-ctn">
-          <Button style={{ backgroundColor: 'black' }}>
-            <Link style={{ color: 'white' }} to={`/vino-seleccionado/${item.id}`}>
-              VER DETALLE
-            </Link>
-          </Button>
+          <button className="btn-detail">
+            <a href={`/vino-seleccionado/${item.id}`}>
+              <b>VER DETALLE</b>
+            </a>
+          </button>
         </div>
       </Card>
     </div>

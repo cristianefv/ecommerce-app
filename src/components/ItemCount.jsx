@@ -17,12 +17,7 @@ export default function ItemCount({ initial, renderizarStock, item, onAdd }) {
   }, [cart]);
 
   useEffect(() => {
-    console.log('el stock es: ', nuevoStock);
-  }, [nuevoStock]);
-
-  useEffect(() => {
     setNuevoStock(nuevoStock);
-    console.log(`el stock inicial es: ${nuevoStock}`);
   }, [nuevoStock]);
 
   const decrease = () => {

@@ -33,3 +33,20 @@
   display: flex;
   justify-content: right;
 }
+.container-btnIndex {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.btn-index {
+  width: 200px;
+  height: 50px;
+  background-color: #7c0e26c9;
+  border-radius: 20px;
+}
+.btn-index a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}

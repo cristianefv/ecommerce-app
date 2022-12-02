@@ -96,7 +96,7 @@ export default function Cart() {
             </Button>
             <Button style={{ backgroundColor: 'purple', color: 'purple' }}>
               <Link style={{ color: 'white', textDecorationStyle: 'none' }} to="/checkout" onClick={() => defaultUserData()}>
-                Ir a pagar
+                continuar
               </Link>
             </Button>
           </div>

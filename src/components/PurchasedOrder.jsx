@@ -22,9 +22,9 @@ export default function PurchasedOrder() {
         <Container fixed>
           <Box sx={{ bgcolor: '#c6c6c6', height: '50vh' }}>
             <h1 className="titulo">MUCHAS GRACIAS POR ELEGIRNOS</h1>
-            <h2>TU NUMERO DE PEDIDO ES: {orderCreated}</h2>
+            <h2>Tu ID de pedido es: {orderCreated}</h2>
             <h3>
-              <b>A continuacion, detallamos la informacion de su pedido.</b>
+              <b>A continuacion, detallamos la informacion para crear su pedido.</b>
             </h3>
             <ul>
               <li>
@@ -37,7 +37,13 @@ export default function PurchasedOrder() {
               </li>
               <li>Fecha del Pedido: {dateOrder}</li>
             </ul>
-            <Typography>Estaremos enviandole esta informacion por mail.</Typography>
+            <Typography>Estaremos enviandole por mail toda la informacion para que pueda hacer el seguimiento de sus productos.</Typography>
+
+            <div className="container-btnIndex">
+              <button className="btn-index">
+                <a href="/">Volver al inicio</a>
+              </button>
+            </div>
           </Box>
         </Container>
       </React.Fragment>
