@@ -1,70 +1,64 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Perfil del Vino - Ecommerce App</h1>
+   <p align="left">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+   </p>
 
-## Available Scripts
+<h2 align="center">Proyecto Final - React JS - Coderhouse</h2>
+<p align="center"> Creado por Cristian Flores</p>
 
-In the project directory, you can run:
+## Deploy: https://perfil-del-vino.vercel.app/
 
-### `npm start`
+Esta aplicacion web fue creada con React JS, Material Ui y Firebase.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Descripcion del proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La app representa un ecommerce de vinos argentinos de autor.
 
-### `npm test`
+La misma cuenta con una base de datos alojada en Firebase, de la cual se conecta mediante Firestore y renderiza toda la coleccion de documentos almacenados.
+Todos estos documentos se muestran en el inicio de la app, teniendo la posibilidad de filtrarlos por categorias.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Categorias
+Las categorias se encuentran visiblemente alojadas en la navbar para una mejor experiencia del usuario que conoce de vinos y quiere buscar el estilo que mas le agrade.
 
-### `npm run build`
+### Productos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Los productos tienen acceso a su informacion detallada a traves de un boton "VER DETALLE", el cual redirige al usuario a otro componente para que pueda ver la descripcion del producto, su stock actual. Y si lo desea, puede agregarlo al carrito cuantas veces quiera, hasta agotar stock.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Una vez agregado el producto, la app le da la opcion al usuario de seguir comprando o dirigirse hacia el carrito para finalizar la compra.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Carrito
 
-### `npm run eject`
+El carrito de compras de la app, se renderiza en una tabla que detalla la imagen del producto, nombre, añada, cantidad agregada, precio unitario, importe por la cantidad agregada, la opcion de eliminar dicho producto y el monto total a abonar.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+El usuario tiene la opcion de borrar un producto especifico o vaciar el carrito completo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si el carrito se vacia completamente, se renderiza un mensaje indicandole al usuario que no hay productos seleccionados y que puede elegir productos de la tienda haciendo click en un link "CLICK AQUI".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+En caso contrario, se puede prodecer al pago.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### CartWidget
 
-## Learn More
+Al agregar productos al carrito, se renderizara un icono de carrito con las unidades agregadas para que pueda ser mas intuitivo para el usuario.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Formulario de compra
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Al dirigirse a pagar los productos seleccionados, la app redirecciona a un formulario para completar los datos del usuario y asi poder procesar el pedido.
 
-### Code Splitting
+El formulario esta validado, por lo que todos los campos tienen que estar cargados y de manera correcta, sin esta informacion no se podra continuar con el proceso y un mensaje de advertencia creado con <b><i>SweetAlert</i></b> advertira al comprador que faltan datos por completar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Resumen de compra
 
-### Analyzing the Bundle Size
+Junto al formulario se despliega un resumen de compra, detallando lo que el usuario eligio para chequear todo una vez mas mientras se completan los datos y poder confirmar el pedido tranquilamente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Comprobante de pedido
 
-### Making a Progressive Web App
+Una vez completados y confirmados los datos del comprador, se renderiza un comprobante del pedido con un mensaje que contiene un ID unico por la compra generada.
+Dicho comprobante avisa al usuario que recibira un mail con los detalles para poder hacer el seguimiento de sus productos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Finalmente un boton le ofrecera al usuario dirigirse al inicio de la app.
 
-### Advanced Configuration
+### Footer
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+En el footer de la app se encuentra un icono de instagram, el cual redirige en otra pestana al instagram de la app.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
