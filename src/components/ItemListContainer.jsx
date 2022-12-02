@@ -3,22 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { Watch } from 'react-loader-spinner';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
-
 export default function ItemListContainer() {
   const { idcategory } = useParams();
-
   const [vinoteca, setVinoteca] = useState([]);
-
   useEffect(() => {
     const dataBase = getFirestore();
     let products;
-
     if (idcategory) {
       products = query(collection(dataBase, 'products'), where('estilo', '==', idcategory));
     } else {
       products = collection(dataBase, 'products');
     }
-
     getDocs(products).then((res) => {
       const arrayProducts = res.docs.map((element) => {
         return {
@@ -34,11 +29,9 @@ export default function ItemListContainer() {
           stock: element.data().stock,
         };
       });
-
       setVinoteca(arrayProducts);
     });
   }, [idcategory]);
-
   return (
     <>
       {!vinoteca.length && (

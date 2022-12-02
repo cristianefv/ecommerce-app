@@ -1,12 +1,9 @@
 import { Box, Container, CssBaseline, Typography } from '@mui/material';
 import React, { useState, useContext, useEffect } from 'react';
 import { cartContext } from '../context/CartContextComponent';
-
 export default function PurchasedOrder() {
   const { orderCreated, name, surname, tel, adress, postalCode, email } = useContext(cartContext);
-
   const [dateOrder, setDateOrder] = useState('');
-
   useEffect(() => {
     const today = new Date();
     const day = today.getDate();
@@ -38,7 +35,6 @@ export default function PurchasedOrder() {
               <li>Fecha del Pedido: {dateOrder}</li>
             </ul>
             <Typography>Estaremos enviandole por mail toda la informacion para que pueda hacer el seguimiento de sus productos.</Typography>
-
             <div className="container-btnIndex">
               <button className="btn-index">
                 <a href="/">Volver al inicio</a>

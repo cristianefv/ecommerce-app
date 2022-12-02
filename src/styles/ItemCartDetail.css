@@ -1,12 +1,10 @@
 .accordionContainer {
   width: 30rem;
 }
-
 .itemContainer {
   display: flex;
   border-bottom-width: 20px;
 }
-
 .itemContainer .imgItem {
   width: 120px;
   height: 150px;

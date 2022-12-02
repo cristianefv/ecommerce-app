@@ -9,9 +9,7 @@ export default function ItemDetailContainer() {
 
   useEffect(() => {
     const dataBase = getFirestore();
-
     let documento = doc(dataBase, 'products', iditem);
-
     getDoc(documento).then((item) => {
       setVinoSeleccionado({ id: item.id, ...item.data() });
     });

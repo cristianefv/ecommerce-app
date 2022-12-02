@@ -14,14 +14,12 @@ import '../styles/Navbar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../context/CartContextComponent';
-
 export default function Navbar() {
   const { cart } = React.useContext(cartContext);
   const [cant, setCant] = React.useState(0);
   React.useEffect(() => {
     setCant(cart.reduce((acc, item) => acc + item.quantity, 0));
   }, [cart]);
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const pages = [
     {
@@ -57,15 +55,12 @@ export default function Navbar() {
       ),
     },
   ];
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   return (
     <AppBar style={{ background: '#000000' }} className="navbar" position="static">
       <Container maxWidth="xl">

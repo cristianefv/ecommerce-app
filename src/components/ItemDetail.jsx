@@ -45,14 +45,12 @@ export default function ItemDetail({ item }) {
                   <b>Stock: </b>
                   {renderStock} unidades
                 </Typography>
-
                 <Typography>
                   <b>Descripción:</b> {item.descripcion}
                 </Typography>
                 <ItemCount renderizarStock={renderizarStock} initial={1} item={item} onAdd={onAdd} />
               </CardContent>
             </Card>
-            ;
           </div>
         </>
       ) : (

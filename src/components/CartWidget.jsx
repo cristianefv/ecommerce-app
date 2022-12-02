@@ -3,8 +3,6 @@ import Badge from '@mui/material/Badge';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-//! PASAR POR PROP LA CANTIDAD DE ITEMS EN CART PARA AGREGARLA A "badgeContent"
 const theme = createTheme({
   palette: {
     neutral: {
@@ -13,7 +11,6 @@ const theme = createTheme({
     },
   },
 });
-
 export default function CartWidget({ cant }) {
   return (
     <>
