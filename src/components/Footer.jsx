@@ -2,10 +2,10 @@ import React from 'react';
 import '../styles/Footer.css';
 import iconInstagram from '../images/iconos/instagram.svg';
 
-const toInstagram = () => {
-  window.open('https://www.instagram.com/perfildelvino/');
-};
 export default function Footer() {
+  const toInstagram = () => {
+    window.open('https://www.instagram.com/perfildelvino/');
+  };
   return (
     <>
       <footer>
